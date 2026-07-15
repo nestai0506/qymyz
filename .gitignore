@@ -1,0 +1,15 @@
+# OS файлдары
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# Редактор
+.vscode/
+.idea/
+*.swp
+*~
+
+# Уақытша файлдар
+*.log
+*.tmp

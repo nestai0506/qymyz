@@ -187,6 +187,7 @@ const I18N = {
   contact_subtitle:{ kz:"Сұрақтарыңыз болса — қоңырау шалыңыз немесе WhatsApp жазыңыз", ru:"Есть вопросы — позвоните или напишите в WhatsApp", en:"Questions? Call us or message us on WhatsApp" },
   c_addr_t:        { kz:"Мекенжай", ru:"Адрес", en:"Address" },
   c_addr_v:        { kz:"Талдықорған қаласы,<br>дача Ащыбұлақ", ru:"г. Талдыкорган,<br>дача Ащыбулак", en:"Taldykorgan city,<br>Ashybulak dacha" },
+  c_addr_map:      { kz:"2GIS-те ашу", ru:"Открыть в 2GIS", en:"Open in 2GIS" },
   c_phone_t:       { kz:"Телефон", ru:"Телефон", en:"Phone" },
   c_hours_t:       { kz:"Жұмыс уақыты", ru:"Часы работы", en:"Working hours" },
   c_hours_v:       { kz:"Күн сайын<br>08:00 — 20:00", ru:"Ежедневно<br>08:00 — 20:00", en:"Daily<br>08:00 — 20:00" },

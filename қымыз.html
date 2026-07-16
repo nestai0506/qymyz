@@ -87,6 +87,9 @@ ul{ list-style:none; }
 .btn--wa:hover{ background:var(--wa-dark); box-shadow:0 14px 30px rgba(37,211,102,.45); }
 .btn--ig{ background:linear-gradient(45deg,#f09433,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888); box-shadow:0 6px 18px rgba(220,39,67,.32); }
 .btn--ig:hover{ filter:brightness(1.08); box-shadow:0 14px 30px rgba(220,39,67,.45); }
+/* 2GIS картасы */
+.btn--map{ --b:#19aa1e; font-size:13.5px; padding:9px 18px; box-shadow:0 5px 14px rgba(25,170,30,.3); }
+.btn--map:hover{ background:#128a16; box-shadow:0 12px 24px rgba(25,170,30,.42); }
 
 /* ============ ОЮ-ӨРНЕК ЖОЛАҚТАРЫ ============ */
 .ornament-band{ height:14px; background:var(--navy); background-image:var(--ornament-gold); background-size:auto 100%; background-repeat:repeat-x; }
@@ -327,6 +330,7 @@ ul{ list-style:none; }
 .contact__card h3{ font-family:var(--head); color:var(--navy); font-size:20px; margin-bottom:8px; }
 .contact__card p{ color:var(--brown); font-size:15px; }
 .contact__card a{ color:var(--navy); font-weight:700; }
+.contact__card .btn--map{ color:#fff; margin-top:14px; }
 .contact__card--wa{ background:linear-gradient(160deg, #eafff2, #d6f7e3); border-color:rgba(37,211,102,.35); }
 .contact__card--wa .contact__ico{ color:var(--wa-dark); background:rgba(37,211,102,.14); border-color:rgba(37,211,102,.3); }
 .contact__card--wa .btn{ margin-top:16px; }
@@ -850,6 +854,10 @@ ul{ list-style:none; }
           </span>
           <h3 data-i18n="c_addr_t">Мекенжай</h3>
           <p data-i18n="c_addr_v">Талдықорған қаласы,<br>дача Ащыбұлақ</p>
+          <a href="https://2gis.kz/almaty/geo/70030076977916638/78.453023,45.023915" target="_blank" rel="noopener" class="btn btn--map">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span data-i18n="c_addr_map">2GIS-те ашу</span>
+          </a>
         </div>
         <div class="contact__card">
           <span class="contact__ico" aria-hidden="true">
@@ -1130,6 +1138,7 @@ const I18N = {
   contact_subtitle:{ kz:"Сұрақтарыңыз болса — қоңырау шалыңыз немесе WhatsApp жазыңыз", ru:"Есть вопросы — позвоните или напишите в WhatsApp", en:"Questions? Call us or message us on WhatsApp" },
   c_addr_t:        { kz:"Мекенжай", ru:"Адрес", en:"Address" },
   c_addr_v:        { kz:"Талдықорған қаласы,<br>дача Ащыбұлақ", ru:"г. Талдыкорган,<br>дача Ащыбулак", en:"Taldykorgan city,<br>Ashybulak dacha" },
+  c_addr_map:      { kz:"2GIS-те ашу", ru:"Открыть в 2GIS", en:"Open in 2GIS" },
   c_phone_t:       { kz:"Телефон", ru:"Телефон", en:"Phone" },
   c_hours_t:       { kz:"Жұмыс уақыты", ru:"Часы работы", en:"Working hours" },
   c_hours_v:       { kz:"Күн сайын<br>08:00 — 20:00", ru:"Ежедневно<br>08:00 — 20:00", en:"Daily<br>08:00 — 20:00" },

@@ -105,8 +105,11 @@
               <radialGradient id="milkTop" cx="0.4" cy="0.35" r="0.85">
                 <stop offset="0" stop-color="#ffffff"/><stop offset="0.6" stop-color="#f4edda"/><stop offset="1" stop-color="#ddd1b6"/>
               </radialGradient>
-              <radialGradient id="leatherG" cx="0.36" cy="0.3" r="0.85">
-                <stop offset="0" stop-color="#bd8b56"/><stop offset="0.5" stop-color="#8a5a30"/><stop offset="1" stop-color="#4c2f18"/>
+              <linearGradient id="woodG" x1="0.15" y1="0" x2="0.7" y2="1">
+                <stop offset="0" stop-color="#c99356"/><stop offset="0.45" stop-color="#96602f"/><stop offset="1" stop-color="#4a2d14"/>
+              </linearGradient>
+              <radialGradient id="woodInner" cx="0.45" cy="0.38" r="0.8">
+                <stop offset="0" stop-color="#7d5129"/><stop offset="1" stop-color="#3b2410"/>
               </radialGradient>
               <radialGradient id="bowlBody" cx="0.42" cy="0.24" r="0.95">
                 <stop offset="0" stop-color="#f3ead6"/><stop offset="0.6" stop-color="#dcc9a1"/><stop offset="1" stop-color="#b89e6f"/>
@@ -120,7 +123,7 @@
                 <stop offset="1" stop-color="#ffffff" stop-opacity="0.25"/>
               </linearGradient>
               <clipPath id="bowlClip"><path d="M99 322 Q185 338 271 322 Q185 396 99 322 Z"/></clipPath>
-              <clipPath id="bodyClip"><path d="M176 150 C168 138 176 120 196 108 C210 100 214 82 210 66 C205 46 224 32 248 32 C286 32 322 62 322 104 C322 140 296 164 262 162 C236 160 220 150 206 140 C200 136 194 138 192 142 Z"/></clipPath>
+              <clipPath id="bodyClip"><ellipse cx="222" cy="122" rx="46" ry="30" transform="rotate(-32 222 122)"/></clipPath>
               <filter id="blurS"><feGaussianBlur stdDeviation="7"/></filter>
               <filter id="liquidWarp" x="-20%" y="-60%" width="140%" height="220%">
                 <feTurbulence type="fractalNoise" baseFrequency="0.02 0.05" numOctaves="1" seed="2" result="n">
@@ -189,27 +192,36 @@
             </svg>
           </div>
 
-          <!-- ҚАБАТ 4: ТОРСЫҚ (тері дорба) -->
+          <!-- ҚАБАТ 4: ОЖАУ (ағаш ожау) -->
           <div class="layer layer--jug">
             <svg viewBox="0 0 380 470">
               <g class="pour-jug">
-                <!-- дене -->
-                <path d="M176 150 C168 138 176 120 196 108 C210 100 214 82 210 66 C205 46 224 32 248 32 C286 32 322 62 322 104 C322 140 296 164 262 162 C236 160 220 150 206 140 C200 136 194 138 192 142 Z" fill="url(#leatherG)" stroke="#3f2712" stroke-width="3" stroke-linejoin="round"/>
-                <!-- текстура + жарық + көлеңке (денеге қиылған) -->
+                <!-- сап (тұтқа) -->
+                <path d="M256 102 L336 52" fill="none" stroke="#3f2712" stroke-width="15" stroke-linecap="round"/>
+                <path d="M256 102 L336 52" fill="none" stroke="#8a5a2e" stroke-width="11" stroke-linecap="round"/>
+                <path d="M259 99 L332 53" fill="none" stroke="#c99356" stroke-width="3" stroke-linecap="round" opacity=".55"/>
+                <!-- саптағы ою-кертпелер -->
+                <path d="M296 79 l7 11 M306 73 l7 11" stroke="#3f2712" stroke-width="2" stroke-linecap="round" opacity=".65"/>
+                <!-- сап ұшындағы ойма түйін -->
+                <circle cx="341" cy="48" r="9" fill="#8a5a2e" stroke="#3f2712" stroke-width="2.5"/>
+                <circle cx="341" cy="48" r="3.5" fill="none" stroke="#c99356" stroke-width="1.6" opacity=".8"/>
+
+                <!-- ожаудың сыртқы шарасы -->
+                <ellipse cx="222" cy="122" rx="46" ry="30" transform="rotate(-32 222 122)" fill="url(#woodG)" stroke="#3f2712" stroke-width="3"/>
+                <!-- ағаш текстурасы мен жарық (шараға қиылған) -->
                 <g clip-path="url(#bodyClip)">
-                  <rect x="160" y="28" width="182" height="144" filter="url(#grain)" opacity=".2" style="mix-blend-mode:multiply"/>
-                  <ellipse cx="238" cy="68" rx="26" ry="34" fill="#ffffff" opacity=".18"/>
-                  <path d="M320 116 C316 148 292 166 258 162" fill="none" stroke="#2a1809" stroke-width="16" opacity=".3"/>
+                  <rect x="170" y="86" width="106" height="74" filter="url(#grain)" opacity=".22" style="mix-blend-mode:multiply"/>
+                  <path d="M188 132 Q222 118 258 106" fill="none" stroke="#5e3a1a" stroke-width="1.6" opacity=".5"/>
+                  <path d="M192 142 Q226 128 262 116" fill="none" stroke="#5e3a1a" stroke-width="1.4" opacity=".4"/>
                 </g>
-                <!-- жиек тігістері -->
-                <path d="M176 150 C168 138 176 120 196 108 C210 100 214 82 210 66 C205 46 224 32 248 32 C286 32 322 62 322 104 C322 140 296 164 262 162 C236 160 220 150 206 140 C200 136 194 138 192 142 Z" fill="none" stroke="#3a2410" stroke-width="1.4" stroke-dasharray="1.5 4.5" opacity=".7"/>
-                <!-- орталық тігіс -->
-                <path d="M186 146 C206 122 226 82 246 40" fill="none" stroke="#3a2410" stroke-width="1.4" stroke-dasharray="1.5 4.5" opacity=".55"/>
-                <!-- ілмек (баулы) -->
-                <path d="M246 34 Q244 20 259 22" fill="none" stroke="#3f2712" stroke-width="4" stroke-linecap="round"/>
-                <!-- ауыз (шүмек) -->
-                <ellipse cx="184" cy="146" rx="7.5" ry="4.2" fill="#2f1c0c" transform="rotate(-38 184 146)"/>
-                <path d="M178 150 Q185 149 191 151 Q186 157 180 155 Z" fill="#fcfbf6"/>
+                <!-- ішкі қуыс (шұңқыр) -->
+                <ellipse cx="223" cy="120" rx="38" ry="22" transform="rotate(-32 223 120)" fill="url(#woodInner)"/>
+                <!-- шұңқырдағы қымыз -->
+                <ellipse cx="217" cy="126" rx="32" ry="16" transform="rotate(-32 217 126)" fill="url(#milkTop)"/>
+                <!-- жиек жарығы -->
+                <path d="M191 138 A46 30 -32 0 1 254 96" fill="none" stroke="#e8c48a" stroke-width="2.2" opacity=".75"/>
+                <!-- ернеу (құйылатын жері) -->
+                <path d="M188 138 Q179 146 184 153 Q191 151 196 143 Z" fill="#fcfbf6"/>
               </g>
             </svg>
           </div>

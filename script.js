@@ -197,7 +197,7 @@ const I18N = {
   c_ig_v:          { kz:"Жаңалықтар мен сурет-видеолар", ru:"Новости, фото и видео", en:"News, photos and videos" },
 
   footer_tagline:  { kz:"Қазақтың дәстүрлі сусынын үйіңізге жеткіземіз.", ru:"Доставляем традиционный напиток казахов к вам домой.", en:"We deliver the traditional Kazakh drink to your home." },
-  footer_copy:     { kz:"© 2026 Қымыз Әлемі. Барлық құқық қорғалған.", ru:"© 2026 Қымыз Әлемі. Все права защищены.", en:"© 2026 Qymyz Alemi. All rights reserved." },
+  footer_copy:     { kz:"© 2026 Бал қымыз. Барлық құқық қорғалған.", ru:"© 2026 Бал қымыз. Все права защищены.", en:"© 2026 Bal Qymyz. All rights reserved." },
 
   cart_title:      { kz:"Себет", ru:"Корзина", en:"Cart" },
   cart_total:      { kz:"Жалпы сома:", ru:"Итого:", en:"Total:" },

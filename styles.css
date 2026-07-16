@@ -394,11 +394,12 @@ ul{ list-style:none; }
   /* Hero екі бағаннан бір бағанға */
   .hero{ min-height:auto; }
   .hero__inner{ flex-direction:column; text-align:center; gap:14px; padding-top:10px; padding-bottom:20px; }
-  .hero__content{ flex:none; max-width:640px; }
+  /* flex:none болса блок кішіреймей, экраннан асып кетеді — сондықтан shrink рұқсат */
+  .hero__content{ flex:0 1 auto; width:100%; max-width:640px; }
   .hero__badge{ margin-bottom:18px; }
   .hero__actions{ justify-content:center; }
   .hero__stats{ justify-content:center; }
-  .hero__visual{ flex:none; width:100%; order:2; }
+  .hero__visual{ flex:0 1 auto; width:100%; order:2; }
   .scene3d{ max-width:330px; }
 }
 @media (max-width:920px){
@@ -430,12 +431,18 @@ ul{ list-style:none; }
   .cart{ width:100%; }
 }
 @media (max-width:480px){
-  .container{ padding:0 16px; }
-  .logo__text{ font-size:18px; }
-  .logo__mark svg{ width:32px; height:32px; }
-  .header__actions{ gap:8px; }
-  .lang__btn{ font-size:11px; padding:5px 7px; }
-  .cart-btn{ width:42px; height:42px; }
+  .container{ padding:0 14px; }
+  .header__inner{ gap:8px; }
+  .logo{ gap:8px; min-width:0; }
+  .logo__text{ font-size:16px; white-space:nowrap; }
+  .logo__mark svg{ width:30px; height:30px; }
+  .header__actions{ gap:6px; }
+  .lang{ padding:2px; }
+  .lang__btn{ font-size:10.5px; padding:4px 6px; letter-spacing:0; }
+  .cart-btn{ width:40px; height:40px; }
+  .cart-btn svg{ width:20px; height:20px; }
+  .burger{ padding:4px; }
+  .burger span{ width:22px; }
   .hero__title{ font-size:32px; }
   .hero__text{ font-size:15.5px; }
   .hero__badge{ font-size:12.5px; padding:7px 14px; }

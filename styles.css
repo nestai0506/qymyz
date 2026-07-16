@@ -118,6 +118,18 @@ ul{ list-style:none; }
 
 .header__actions{ display:flex; align-items:center; gap:12px; }
 
+/* Түнгі/күндізгі режим батырмасы */
+.theme-btn{
+  width:42px; height:42px; border-radius:50%; cursor:pointer; flex-shrink:0;
+  border:1px solid rgba(200,150,62,.45); background:rgba(122,78,54,.1); color:var(--brown-dark);
+  display:grid; place-items:center; transition:background .2s, color .2s, transform .2s;
+}
+.theme-btn:hover{ background:var(--gold); color:#fff; transform:translateY(-2px); }
+.theme-btn svg{ width:19px; height:19px; }
+.theme-btn .ico-sun{ display:none; }
+[data-theme="dark"] .theme-btn .ico-moon{ display:none; }
+[data-theme="dark"] .theme-btn .ico-sun{ display:block; }
+
 /* Тіл ауыстырғыш */
 .lang{ display:flex; background:rgba(122,78,54,.1); border:1px solid rgba(200,150,62,.35); border-radius:50px; padding:3px; }
 .lang__btn{
@@ -557,4 +569,79 @@ ul{ list-style:none; }
 }
 @media (prefers-reduced-motion:reduce){
   *{ animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+}
+
+/* ============================================================
+   ТҮНГІ РЕЖИМ (dark mode)
+   Ашық беттер қараяды, алтын мен ою-өрнек сол қалпында қалады.
+   --navy фон ретінде де, мәтін ретінде де қолданылатындықтан,
+   мәтін болып тұрған жерлері бөлек жарықтандырылады.
+   ============================================================ */
+[data-theme="dark"]{
+  --cream:      #1b1209;   /* беттің фоны */
+  --cream-2:    #2b1d10;   /* карточка/қосымша фон */
+  --brown:      #c6b092;   /* екінші дәрежелі мәтін */
+  --brown-dark: #ebe0c8;
+  --ink:        #f2e8d5;   /* негізгі мәтін */
+  --gold:       #d9a648;
+  --gold-soft:  #edd28e;
+  --gold-deep:  #e2b763;   /* мәтін ретінде де қолданылады → жарық */
+  --navy-deep:  #120b04;
+  --shadow-sm: 0 3px 14px rgba(0,0,0,.45);
+  --shadow-md: 0 14px 40px rgba(0,0,0,.55);
+  --shadow-lg: 0 26px 60px rgba(0,0,0,.65);
+}
+
+/* фондағы ою-өрнек — қарада алтынмен */
+[data-theme="dark"] body{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cg fill='none' stroke='%23cf9a3a' stroke-opacity='0.06' stroke-width='2'%3E%3Cpath d='M70 70 C55 70 44 62 44 50 C44 41 52 38 57 43 C62 48 55 56 48 51'/%3E%3Cpath d='M70 70 C85 70 96 62 96 50 C96 41 88 38 83 43 C78 48 85 56 92 51'/%3E%3Cpath d='M70 70 C55 70 44 78 44 90 C44 99 52 102 57 97 C62 92 55 84 48 89'/%3E%3Cpath d='M70 70 C85 70 96 78 96 90 C96 99 88 102 83 97 C78 92 85 84 92 89'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* --navy мәтін болып тұрған жерлер → жарық алтын */
+[data-theme="dark"] .logo__text,
+[data-theme="dark"] .section__title,
+[data-theme="dark"] .card__name,
+[data-theme="dark"] .cart-item__name,
+[data-theme="dark"] .contact__card h3,
+[data-theme="dark"] .contact__card a,
+[data-theme="dark"] .about__list strong,
+[data-theme="dark"] .cart__total strong,
+[data-theme="dark"] .qty-num,
+[data-theme="dark"] .contact__card .phone-link,
+[data-theme="dark"] .nav__link:hover{ color:var(--gold-soft); }
+
+[data-theme="dark"] .card__vol{ color:var(--gold-soft); background:rgba(207,154,58,.14); }
+[data-theme="dark"] .burger span{ background:var(--gold-soft); }
+
+/* жартылай мөлдір ашық фондар → қара */
+[data-theme="dark"] .header{ background:rgba(27,18,9,.85); }
+[data-theme="dark"] .header.scrolled{ background:rgba(27,18,9,.97); box-shadow:0 6px 24px rgba(0,0,0,.5); }
+[data-theme="dark"] .products{ background:linear-gradient(180deg, transparent, rgba(43,29,16,.6)); }
+[data-theme="dark"] .contact{ background:linear-gradient(180deg, rgba(43,29,16,.6), transparent); }
+[data-theme="dark"] .about{
+  background:
+    linear-gradient(180deg, rgba(20,13,6,.90), rgba(30,20,10,.92)),
+    url("images/about-bg.jpg");
+  background-size:cover; background-position:center; background-attachment:fixed;
+}
+
+/* WhatsApp / Instagram карточкалары — қараңғы реңк */
+[data-theme="dark"] .contact__card--wa{ background:linear-gradient(160deg, #12301f, #0e2618); border-color:rgba(37,211,102,.3); }
+[data-theme="dark"] .contact__card--wa .contact__ico{ color:#4ade80; background:rgba(37,211,102,.14); }
+[data-theme="dark"] .contact__card--ig{ background:linear-gradient(160deg, #331323, #24101a); border-color:rgba(220,39,67,.3); }
+[data-theme="dark"] .contact__card--ig .contact__ico{ color:#f472a0; background:rgba(220,39,67,.14); }
+
+/* ұсақ түзетулер */
+[data-theme="dark"] .card__meta{ border-top-color:rgba(207,154,58,.25); }
+[data-theme="dark"] .cart-item__thumb{ border-color:rgba(200,150,62,.4); }
+[data-theme="dark"] .about__ico{ background:var(--cream-2); border-color:rgba(200,150,62,.35); }
+[data-theme="dark"] .theme-btn{ color:var(--gold-soft); border-color:rgba(200,150,62,.4); background:rgba(207,154,58,.12); }
+[data-theme="dark"] .theme-btn:hover{ color:var(--brown-dark); }
+[data-theme="dark"] .lang{ background:rgba(207,154,58,.1); }
+[data-theme="dark"] .lang__btn{ color:var(--brown); }
+[data-theme="dark"] .lang__btn.active{ background:var(--gold); color:#2b1d10; }
+
+/* тақырып ауысқанда жұмсақ өту */
+body, .card, .contact__card, .cart, .cart__body, .header, .about__ico, .cart-item__qty{
+  transition:background-color .35s ease, color .35s ease, border-color .35s ease;
 }

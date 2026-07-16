@@ -518,6 +518,34 @@ function initCardTilt() {
 }
 
 /* ============================================================
+   ТҮНГІ / КҮНДІЗГІ РЕЖИМ
+   ============================================================ */
+function applyTheme(theme) {
+  const dark = theme === "dark";
+  document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+  // мобильді браузердің жоғарғы жолағының түсі
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) meta.setAttribute("content", dark ? "#1b1209" : "#6b4526");
+}
+
+function initTheme() {
+  const btn = document.getElementById("themeBtn");
+  let saved = null;
+  try { saved = localStorage.getItem("qymyz_theme"); } catch (e) {}
+  // сақталмаған болса — құрылғының өз баптауын алады
+  const prefersDark = window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+  applyTheme(saved || (prefersDark ? "dark" : "light"));
+
+  if (!btn) return;
+  btn.addEventListener("click", () => {
+    const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    applyTheme(next);
+    try { localStorage.setItem("qymyz_theme", next); } catch (e) {}
+  });
+}
+
+/* ============================================================
    ULTRA 3D САХНА — тінтуір + гироскоп + баяу қалқу
    ============================================================ */
 function initScene3D() {
@@ -579,6 +607,7 @@ function initScene3D() {
 /* ============================================================
    ІСКЕ ҚОСУ
    ============================================================ */
+initTheme();      // сақталған тақырып (күндізгі/түнгі)
 initLang();       // сақталған тілді орнатып, статикалық мәтінді аударады
 renderProducts(); // дұрыс тілде (initCardTilt осы жерде шақырылады)
 initScene3D();

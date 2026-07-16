@@ -337,6 +337,7 @@ ul{ list-style:none; }
 .footer__soc-btn:hover{ transform:translateY(-3px); }
 .footer__soc-btn:nth-child(1):hover{ background:linear-gradient(45deg,#f09433,#dc2743 50%,#bc1888); border-color:transparent; }
 .footer__soc-btn:nth-child(2):hover{ background:var(--wa); border-color:transparent; }
+.footer__soc-btn:nth-child(3):hover{ background:#19aa1e; border-color:transparent; } /* 2GIS */
 .footer__links{ display:flex; gap:24px; flex-wrap:wrap; }
 .footer__links a{ font-size:15px; font-weight:500; transition:color .2s; }
 .footer__links a:hover{ color:var(--gold-soft); }

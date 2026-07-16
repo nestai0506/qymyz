@@ -335,6 +335,29 @@ ul{ list-style:none; }
 .contact__card a{ color:var(--navy); font-weight:700; }
 .contact__card .btn--map,
 .contact__card .btn--call{ color:#fff; margin-top:14px; }
+
+/* Басылатынын білдіріп тұратын телефон нөмірі */
+.contact__card .phone-link{
+  display:inline-flex; align-items:center; gap:7px;
+  font-family:var(--head); font-weight:800; font-size:18px; color:var(--navy);
+  padding:7px 16px; border-radius:50px;
+  background:rgba(200,150,62,.15); border:1.5px dashed rgba(200,150,62,.65);
+  animation:phonePulse 2.4s ease-in-out infinite;
+  transition:background .25s, transform .2s, border-color .25s;
+  cursor:pointer; white-space:nowrap;
+}
+.contact__card .phone-link svg{ color:var(--gold-deep); flex-shrink:0; }
+.contact__card .phone-link:hover{
+  background:var(--gold); color:var(--brown-dark); border-color:var(--gold); border-style:solid;
+  transform:scale(1.05); animation-play-state:paused;
+}
+.contact__card .phone-link:hover svg{ color:var(--brown-dark); }
+.contact__card .phone-link:active{ transform:scale(.97); }
+@keyframes phonePulse{
+  0%   { box-shadow:0 0 0 0 rgba(200,150,62,.55); }
+  70%  { box-shadow:0 0 0 13px rgba(200,150,62,0); }
+  100% { box-shadow:0 0 0 0 rgba(200,150,62,0); }
+}
 .contact__card--wa{ background:linear-gradient(160deg, #eafff2, #d6f7e3); border-color:rgba(37,211,102,.35); }
 .contact__card--wa .contact__ico{ color:var(--wa-dark); background:rgba(37,211,102,.14); border-color:rgba(37,211,102,.3); }
 .contact__card--wa .btn{ margin-top:16px; }
@@ -869,7 +892,10 @@ ul{ list-style:none; }
             <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
           </span>
           <h3 data-i18n="c_phone_t">Телефон</h3>
-          <p><a href="tel:+77000707729">+7 700 070 77 29</a></p>
+          <p><a href="tel:+77000707729" class="phone-link">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+            +7 700 070 77 29
+          </a></p>
           <a href="tel:+77000707729" class="btn btn--call">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
             <span data-i18n="c_phone_btn">Хабарласу</span>

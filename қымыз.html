@@ -90,9 +90,6 @@ ul{ list-style:none; }
 /* 2GIS картасы */
 .btn--map{ --b:#19aa1e; font-size:13.5px; padding:9px 18px; box-shadow:0 5px 14px rgba(25,170,30,.3); }
 .btn--map:hover{ background:#128a16; box-shadow:0 12px 24px rgba(25,170,30,.42); }
-/* Қоңырау шалу */
-.btn--call{ --b:var(--navy); font-size:13.5px; padding:9px 18px; }
-.btn--call:hover{ background:var(--navy-deep); }
 
 /* ============ ОЮ-ӨРНЕК ЖОЛАҚТАРЫ ============ */
 .ornament-band{ height:14px; background:var(--navy); background-image:var(--ornament-gold); background-size:auto 100%; background-repeat:repeat-x; }
@@ -333,30 +330,30 @@ ul{ list-style:none; }
 .contact__card h3{ font-family:var(--head); color:var(--navy); font-size:20px; margin-bottom:8px; }
 .contact__card p{ color:var(--brown); font-size:15px; }
 .contact__card a{ color:var(--navy); font-weight:700; }
-.contact__card .btn--map,
-.contact__card .btn--call{ color:#fff; margin-top:14px; }
+.contact__card .btn--map{ color:#fff; margin-top:14px; }
 
-/* Басылатынын білдіріп тұратын телефон нөмірі */
+/* Телефон нөмірі — таза жазу, басқанда қоңырау шалады */
 .contact__card .phone-link{
-  display:inline-flex; align-items:center; gap:7px;
-  font-family:var(--head); font-weight:800; font-size:18px; color:var(--navy);
-  padding:7px 16px; border-radius:50px;
-  background:rgba(200,150,62,.15); border:1.5px dashed rgba(200,150,62,.65);
-  animation:phonePulse 2.4s ease-in-out infinite;
-  transition:background .25s, transform .2s, border-color .25s;
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--head); font-weight:800; font-size:20px; color:var(--navy);
+  transition:color .22s, transform .2s;
   cursor:pointer; white-space:nowrap;
 }
-.contact__card .phone-link svg{ color:var(--gold-deep); flex-shrink:0; }
-.contact__card .phone-link:hover{
-  background:var(--gold); color:var(--brown-dark); border-color:var(--gold); border-style:solid;
-  transform:scale(1.05); animation-play-state:paused;
+/* қоңырау белгісі баяу «шылдырлап» тұрады — басылатынын білдіру үшін */
+.contact__card .phone-link svg{
+  color:var(--gold-deep); flex-shrink:0; transform-origin:center;
+  animation:phoneRing 3s ease-in-out infinite;
 }
-.contact__card .phone-link:hover svg{ color:var(--brown-dark); }
-.contact__card .phone-link:active{ transform:scale(.97); }
-@keyframes phonePulse{
-  0%   { box-shadow:0 0 0 0 rgba(200,150,62,.55); }
-  70%  { box-shadow:0 0 0 13px rgba(200,150,62,0); }
-  100% { box-shadow:0 0 0 0 rgba(200,150,62,0); }
+.contact__card .phone-link:hover{ color:var(--gold-deep); transform:scale(1.05); }
+.contact__card .phone-link:hover svg{ animation-play-state:paused; }
+.contact__card .phone-link:active{ transform:scale(.98); }
+@keyframes phoneRing{
+  0%, 62%, 100%{ transform:rotate(0deg); }
+  66%{ transform:rotate(-13deg); }
+  71%{ transform:rotate(11deg); }
+  76%{ transform:rotate(-8deg); }
+  81%{ transform:rotate(6deg); }
+  86%{ transform:rotate(0deg); }
 }
 .contact__card--wa{ background:linear-gradient(160deg, #eafff2, #d6f7e3); border-color:rgba(37,211,102,.35); }
 .contact__card--wa .contact__ico{ color:var(--wa-dark); background:rgba(37,211,102,.14); border-color:rgba(37,211,102,.3); }
@@ -896,10 +893,6 @@ ul{ list-style:none; }
             <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
             +7 700 070 77 29
           </a></p>
-          <a href="tel:+77000707729" class="btn btn--call">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
-            <span data-i18n="c_phone_btn">Хабарласу</span>
-          </a>
         </div>
         <div class="contact__card">
           <span class="contact__ico" aria-hidden="true">
@@ -1178,7 +1171,6 @@ const I18N = {
   c_addr_v:        { kz:"Талдықорған қаласы,<br>дача Ащыбұлақ", ru:"г. Талдыкорган,<br>дача Ащыбулак", en:"Taldykorgan city,<br>Ashybulak dacha" },
   c_addr_map:      { kz:"2GIS-те ашу", ru:"Открыть в 2GIS", en:"Open in 2GIS" },
   c_phone_t:       { kz:"Телефон", ru:"Телефон", en:"Phone" },
-  c_phone_btn:     { kz:"Хабарласу", ru:"Позвонить", en:"Call now" },
   c_hours_t:       { kz:"Жұмыс уақыты", ru:"Часы работы", en:"Working hours" },
   c_hours_v:       { kz:"Күн сайын<br>08:00 — 20:00", ru:"Ежедневно<br>08:00 — 20:00", en:"Daily<br>08:00 — 20:00" },
   c_wa_v:          { kz:"Жедел тапсырыс пен кеңес", ru:"Быстрый заказ и консультация", en:"Quick order and advice" },

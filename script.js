@@ -189,7 +189,6 @@ const I18N = {
   c_addr_v:        { kz:"Талдықорған қаласы,<br>дача Ащыбұлақ", ru:"г. Талдыкорган,<br>дача Ащыбулак", en:"Taldykorgan city,<br>Ashybulak dacha" },
   c_addr_map:      { kz:"2GIS-те ашу", ru:"Открыть в 2GIS", en:"Open in 2GIS" },
   c_phone_t:       { kz:"Телефон", ru:"Телефон", en:"Phone" },
-  c_phone_btn:     { kz:"Хабарласу", ru:"Позвонить", en:"Call now" },
   c_hours_t:       { kz:"Жұмыс уақыты", ru:"Часы работы", en:"Working hours" },
   c_hours_v:       { kz:"Күн сайын<br>08:00 — 20:00", ru:"Ежедневно<br>08:00 — 20:00", en:"Daily<br>08:00 — 20:00" },
   c_wa_v:          { kz:"Жедел тапсырыс пен кеңес", ru:"Быстрый заказ и консультация", en:"Quick order and advice" },

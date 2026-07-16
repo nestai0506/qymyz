@@ -331,7 +331,7 @@ ul{ list-style:none; }
 .about__frame::after{
   content:""; position:absolute; inset:8px; border:1px solid rgba(220,185,104,.5); border-radius:8px; pointer-events:none; z-index:2;
 }
-.about__art{ display:block; width:100%; height:480px; object-fit:cover; border-radius:8px; }
+.about__art{ display:block; width:100%; height:480px; object-fit:cover; border-radius:8px; transition:filter .35s ease; }
 .about__badge{
   position:absolute; right:-14px; bottom:24px; z-index:3; background:var(--gold);
   color:var(--brown-dark); border-radius:var(--radius-sm); padding:16px 22px; box-shadow:var(--shadow-lg);
@@ -665,6 +665,10 @@ ul{ list-style:none; }
 [data-theme="dark"] .contact__card--wa .contact__ico{ color:#4ade80; background:rgba(37,211,102,.14); }
 [data-theme="dark"] .contact__card--ig{ background:linear-gradient(160deg, #331323, #24101a); border-color:rgba(220,39,67,.3); }
 [data-theme="dark"] .contact__card--ig .contact__ico{ color:#f472a0; background:rgba(220,39,67,.14); }
+
+/* «Біз туралы» фотосы да қараңғылайды */
+[data-theme="dark"] .about__art{ filter:brightness(.62) contrast(1.06) saturate(.85); }
+[data-theme="dark"] .about__frame{ background:var(--navy-deep); }
 
 /* ұсақ түзетулер */
 [data-theme="dark"] .card__meta{ border-top-color:rgba(207,154,58,.25); }

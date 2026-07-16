@@ -618,11 +618,12 @@ ul{ list-style:none; }
 [data-theme="dark"] .header.scrolled{ background:rgba(27,18,9,.97); box-shadow:0 6px 24px rgba(0,0,0,.5); }
 [data-theme="dark"] .products{ background:linear-gradient(180deg, transparent, rgba(43,29,16,.6)); }
 [data-theme="dark"] .contact{ background:linear-gradient(180deg, rgba(43,29,16,.6), transparent); }
+/* Тек фон суретінің қабатын ауыстырамыз — size/position/attachment негізгі
+   ережеден сақталады (мобильде fixed ақауы болмауы үшін) */
 [data-theme="dark"] .about{
-  background:
-    linear-gradient(180deg, rgba(20,13,6,.90), rgba(30,20,10,.92)),
+  background-image:
+    linear-gradient(180deg, rgba(22,14,6,.76), rgba(32,21,10,.87)),
     url("images/about-bg.jpg");
-  background-size:cover; background-position:center; background-attachment:fixed;
 }
 
 /* WhatsApp / Instagram карточкалары — қараңғы реңк */
@@ -631,8 +632,8 @@ ul{ list-style:none; }
 [data-theme="dark"] .contact__card--ig{ background:linear-gradient(160deg, #331323, #24101a); border-color:rgba(220,39,67,.3); }
 [data-theme="dark"] .contact__card--ig .contact__ico{ color:#f472a0; background:rgba(220,39,67,.14); }
 
-/* «Біз туралы» фотосы да қараңғылайды */
-[data-theme="dark"] .about__art{ filter:brightness(.62) contrast(1.06) saturate(.85); }
+/* «Біз туралы» фотосы да қараңғылайды (түнде көзге ұрмауы үшін) */
+[data-theme="dark"] .about__art{ filter:brightness(.45) contrast(1.08) saturate(.8); }
 [data-theme="dark"] .about__frame{ background:var(--navy-deep); }
 
 /* ұсақ түзетулер */

@@ -79,6 +79,9 @@ ul{ list-style:none; }
 /* 2GIS картасы */
 .btn--map{ --b:#19aa1e; font-size:13.5px; padding:9px 18px; box-shadow:0 5px 14px rgba(25,170,30,.3); }
 .btn--map:hover{ background:#128a16; box-shadow:0 12px 24px rgba(25,170,30,.42); }
+/* Қоңырау шалу */
+.btn--call{ --b:var(--navy); font-size:13.5px; padding:9px 18px; }
+.btn--call:hover{ background:var(--navy-deep); }
 
 /* ============ ОЮ-ӨРНЕК ЖОЛАҚТАРЫ ============ */
 .ornament-band{ height:14px; background:var(--navy); background-image:var(--ornament-gold); background-size:auto 100%; background-repeat:repeat-x; }
@@ -319,7 +322,8 @@ ul{ list-style:none; }
 .contact__card h3{ font-family:var(--head); color:var(--navy); font-size:20px; margin-bottom:8px; }
 .contact__card p{ color:var(--brown); font-size:15px; }
 .contact__card a{ color:var(--navy); font-weight:700; }
-.contact__card .btn--map{ color:#fff; margin-top:14px; }
+.contact__card .btn--map,
+.contact__card .btn--call{ color:#fff; margin-top:14px; }
 .contact__card--wa{ background:linear-gradient(160deg, #eafff2, #d6f7e3); border-color:rgba(37,211,102,.35); }
 .contact__card--wa .contact__ico{ color:var(--wa-dark); background:rgba(37,211,102,.14); border-color:rgba(37,211,102,.3); }
 .contact__card--wa .btn{ margin-top:16px; }

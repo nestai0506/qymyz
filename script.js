@@ -324,18 +324,24 @@ function renderCart() {
     <div class="cart-item">
       <div class="cart-item__thumb">${VESSELS[p.vessel]}</div>
       <div class="cart-item__info">
-        <div class="cart-item__name">${p.name[LANG]}</div>
-        <div class="cart-item__vol">${t("cart_vol")} ${p.vol[LANG]}</div>
-        <div class="cart-item__price">${formatPrice(p.price * i.qty)} ₸</div>
-        <div class="cart-item__qty">
-          <button class="qty-btn" data-minus="${i.id}" aria-label="−">−</button>
-          <span class="qty-num">${i.qty}</span>
-          <button class="qty-btn" data-plus="${i.id}" aria-label="+">+</button>
+        <div class="cart-item__top">
+          <div>
+            <div class="cart-item__name">${p.name[LANG]}</div>
+            <div class="cart-item__vol">${t("cart_vol")} ${p.vol[LANG]}</div>
+          </div>
+          <button class="cart-item__remove" data-remove="${i.id}" aria-label="×">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+          </button>
+        </div>
+        <div class="cart-item__row">
+          <div class="cart-item__qty">
+            <button class="qty-btn" data-minus="${i.id}" aria-label="−">−</button>
+            <span class="qty-num">${i.qty}</span>
+            <button class="qty-btn" data-plus="${i.id}" aria-label="+">+</button>
+          </div>
+          <div class="cart-item__price">${formatPrice(p.price * i.qty)} ₸</div>
         </div>
       </div>
-      <button class="cart-item__remove" data-remove="${i.id}" aria-label="×">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
-      </button>
     </div>`;
   }).join("");
 

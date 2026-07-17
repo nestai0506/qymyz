@@ -142,6 +142,8 @@
   <!-- ================= HERO ================= -->
   <section class="hero" id="hero">
     <div class="hero__pattern" aria-hidden="true"></div>
+    <!-- 3D фон эффектісі (тек десктопта жүктеледі, мәтінге кедергі жасамайды) -->
+    <canvas id="hero3d" class="hero__canvas" aria-hidden="true"></canvas>
     <div class="container hero__inner">
       <div class="hero__content">
         <span class="hero__badge" data-i18n="hero_badge">Дала дәстүрі • 1994 жылдан бері</span>
@@ -490,5 +492,32 @@
   <div class="toast" id="toast"></div>
 
   <script src="script.js?v=2"></script>
+
+  <!-- ===== Hero 3D эффектісі =====
+       Three.js ТЕК десктопта жүктеледі. Телефонда бұл блок ештеңе
+       жүктемейді → сайттың жылдамдығы бұрынғыдай қалады, фон ретінде
+       жылқылар фотосы мен ожау анимациясы көрінеді. -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module">
+    const heavy = !window.matchMedia('(max-width: 900px), (pointer: coarse)').matches
+               && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (heavy) {
+      import('./hero3d.js?v=1').catch(() => {
+        // Интернет/WebGL болмаса — үнсіз өтеміз, сайт қалыпты жұмыс істей береді
+        const c = document.getElementById('hero3d');
+        if (c) c.style.display = 'none';
+      });
+    } else {
+      const c = document.getElementById('hero3d');
+      if (c) c.style.display = 'none';
+    }
+  </script>
 </body>
 </html>

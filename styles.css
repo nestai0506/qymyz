@@ -578,15 +578,15 @@ ul{ list-style:none; }
    мәтін болып тұрған жерлері бөлек жарықтандырылады.
    ============================================================ */
 [data-theme="dark"]{
-  --cream:      #1b1209;   /* беттің фоны */
-  --cream-2:    #2b1d10;   /* карточка/қосымша фон */
-  --brown:      #c6b092;   /* екінші дәрежелі мәтін */
+  --cream:      #2a1e12;   /* беттің фоны (жылы қоңыр, тым қара емес) */
+  --cream-2:    #3a2a1a;   /* карточка/қосымша фон */
+  --brown:      #cbb69a;   /* екінші дәрежелі мәтін */
   --brown-dark: #ebe0c8;
   --ink:        #f2e8d5;   /* негізгі мәтін */
   --gold:       #d9a648;
   --gold-soft:  #edd28e;
   --gold-deep:  #e2b763;   /* мәтін ретінде де қолданылады → жарық */
-  --navy-deep:  #120b04;
+  --navy-deep:  #1f1408;
   --shadow-sm: 0 3px 14px rgba(0,0,0,.45);
   --shadow-md: 0 14px 40px rgba(0,0,0,.55);
   --shadow-lg: 0 26px 60px rgba(0,0,0,.65);
@@ -614,15 +614,15 @@ ul{ list-style:none; }
 [data-theme="dark"] .burger span{ background:var(--gold-soft); }
 
 /* жартылай мөлдір ашық фондар → қара */
-[data-theme="dark"] .header{ background:rgba(27,18,9,.85); }
-[data-theme="dark"] .header.scrolled{ background:rgba(27,18,9,.97); box-shadow:0 6px 24px rgba(0,0,0,.5); }
-[data-theme="dark"] .products{ background:linear-gradient(180deg, transparent, rgba(43,29,16,.6)); }
-[data-theme="dark"] .contact{ background:linear-gradient(180deg, rgba(43,29,16,.6), transparent); }
+[data-theme="dark"] .header{ background:rgba(42,30,18,.86); }
+[data-theme="dark"] .header.scrolled{ background:rgba(42,30,18,.97); box-shadow:0 6px 24px rgba(0,0,0,.45); }
+[data-theme="dark"] .products{ background:linear-gradient(180deg, transparent, rgba(58,42,26,.55)); }
+[data-theme="dark"] .contact{ background:linear-gradient(180deg, rgba(58,42,26,.55), transparent); }
 /* Тек фон суретінің қабатын ауыстырамыз — size/position/attachment негізгі
    ережеден сақталады (мобильде fixed ақауы болмауы үшін) */
 [data-theme="dark"] .about{
   background-image:
-    linear-gradient(180deg, rgba(22,14,6,.76), rgba(32,21,10,.87)),
+    linear-gradient(180deg, rgba(36,25,14,.74), rgba(48,34,20,.84)),
     url("images/about-bg.jpg");
 }
 

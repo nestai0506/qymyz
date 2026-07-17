@@ -78,32 +78,47 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;0,900;1,500;1,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
 /* ============================================================
-   ҚЫМЫЗ ӘЛЕМІ — қазақы этно-стиль (қошқар мүйіз ою-өрнегі)
+   БАЛ ҚЫМЫЗ — дизайн токендері
+   Бүкіл сайттың түсі осы жерден басқарылады.
+   Брендинг өзгерсе — тек осы блокты түзетесіз.
    ============================================================ */
 :root{
-  --navy:       #6b4526;   /* негізгі қоңыр (бұрынғы көктің орнына) */
-  --navy-deep:  #4a2f18;   /* қою қоңыр */
-  --navy-soft:  #8a5e36;   /* ашық қоңыр */
-  --gold:       #cf9a3a;   /* сарғыш алтын */
-  --gold-soft:  #e3c072;
-  --gold-deep:  #b07c26;
-  --cream:      #faf3e4;   /* сарғыштау ақ */
-  --cream-2:    #f0e4ca;
-  --brown:      #7a5636;   /* сірге қоңыры */
-  --brown-dark: #4a3018;
-  --ink:        #3a2814;
-  --wa:         #25d366;
-  --wa-dark:    #1da851;
+  /* ---------- ТҮС ПАЛИТРАСЫ ---------- */
+  --c-bg:          #faf3e4;   /* Сірге пергаменті — негізгі фон       */
+  --c-surface:     #f0e4ca;   /* Ашық сірге — карточка, қосымша фон   */
+  --c-brand:       #6b4526;   /* Саба қоңыры — негізгі бренд түсі     */
+  --c-brand-soft:  #8a5e36;   /* Ашық саба — көлеңкелеу              */
+  --c-deep:        #4a2f18;   /* Қара сірге — footer, цитата, жолақ   */
+  --c-honey:       #cf9a3a;   /* Бал алтыны — акцент, батырма, баға   */
+  --c-honey-soft:  #e3c072;   /* Саумал шуағы — жарқыл, hover        */
+  --c-honey-deep:  #b07c26;   /* Қою бал — серифті баға, eyebrow      */
+  --c-ink:         #3a2814;   /* Күйген қоңыр — негізгі мәтін         */
+  --c-ink-strong:  #4a3018;   /* Қою мәтін — тақырыпша               */
+  --c-muted:       #7a5636;   /* Солғын мәтін — сипаттама            */
+  --c-line:        rgba(207,154,58,.28);  /* Ою жібі — шекара, бөлгіш */
+  --wa:            #25d366;
+  --wa-dark:       #1da851;
 
-  --shadow-sm: 0 3px 14px rgba(16,57,79,.09);
-  --shadow-md: 0 14px 40px rgba(16,57,79,.16);
-  --shadow-lg: 0 26px 60px rgba(10,39,53,.28);
+  /* ---------- КӨЛЕҢКЕ ---------- */
+  --shadow-sm: 0 3px 14px rgba(58,40,20,.09);
+  --shadow-md: 0 14px 40px rgba(58,40,20,.16);
+  --shadow-lg: 0 26px 60px rgba(42,30,18,.28);
 
+  /* ---------- АРАЛЫҚ (space scale) ---------- */
+  --space-1: 4px;  --space-2: 8px;   --space-3: 14px;
+  --space-4: 22px; --space-5: 36px;  --space-6: 60px;  --space-7: 96px;
+
+  /* ---------- ПІШІН ---------- */
   --radius:    14px;
   --radius-sm: 10px;
+  --radius-pill: 50px;
   --maxw: 1180px;
-  --head: 'Playfair Display', Georgia, serif;
-  --body: 'Manrope', system-ui, sans-serif;
+
+  /* ---------- ШРИФТ ---------- */
+  --head: 'Playfair Display', Georgia, serif;   /* Display — тақырып   */
+  --body: 'Manrope', system-ui, sans-serif;     /* Body — негізгі мәтін */
+  /* Сан/баға: жеке шрифт ҚОСЫЛМАДЫ — Manrope-тың tabular-nums режимі
+     цифрларды теңестіреді (жаңа шрифт = +80 KB, ұтысы аз). */
 
   /* Қошқар мүйіз ою жолағы (алтын, түнгі көк фонда) */
   --ornament-gold: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='30' viewBox='0 0 60 30'%3E%3Cg fill='none' stroke='%23c8963e' stroke-width='1.8' stroke-linecap='round'%3E%3Cpath d='M30 29 L30 16 C22 16 16 13 16 8 C16 4 20 3 22 5.5 C24 8 21 11.5 18 9.5'/%3E%3Cpath d='M30 16 C38 16 44 13 44 8 C44 4 40 3 38 5.5 C36 8 39 11.5 42 9.5'/%3E%3Ccircle cx='30' cy='13' r='1.6' fill='%23c8963e' stroke='none'/%3E%3C/g%3E%3C/svg%3E");
@@ -118,7 +133,7 @@
 *{ margin:0; padding:0; box-sizing:border-box; }
 html{ scroll-behavior:smooth; scroll-padding-top:96px; }
 body{
-  font-family:var(--body); color:var(--ink); background:var(--cream);
+  font-family:var(--body); color:var(--c-ink); background:var(--c-bg);
   line-height:1.65; overflow-x:hidden;
   /* Жеңіл қошқар-мүйіз фоны */
   background-image:
@@ -132,7 +147,7 @@ ul{ list-style:none; }
 
 /* ============ БАТЫРМАЛАР ============ */
 .btn{
-  --b:var(--navy);
+  --b:var(--c-brand);
   display:inline-flex; align-items:center; justify-content:center; gap:9px;
   font-family:var(--body); font-weight:700; font-size:15px; letter-spacing:.2px;
   padding:13px 28px; border:none; border-radius:50px; cursor:pointer;
@@ -143,14 +158,14 @@ ul{ list-style:none; }
 .btn:active{ transform:translateY(-1px) scale(.98); }
 .btn--lg{ padding:16px 36px; font-size:16px; }
 .btn--block{ width:100%; }
-.btn--gold{ --b:var(--gold); color:var(--brown-dark); box-shadow:0 6px 18px rgba(200,150,62,.4); }
-.btn--gold:hover{ background:var(--gold-soft); box-shadow:0 14px 30px rgba(200,150,62,.5); }
-.btn--dark{ --b:var(--navy); }
-.btn--dark:hover{ background:var(--navy-deep); }
+.btn--gold{ --b:var(--c-honey); color:var(--c-ink-strong); box-shadow:0 6px 18px rgba(200,150,62,.4); }
+.btn--gold:hover{ background:var(--c-honey-soft); box-shadow:0 14px 30px rgba(200,150,62,.5); }
+.btn--dark{ --b:var(--c-brand); }
+.btn--dark:hover{ background:var(--c-deep); }
 .btn--outline{
   background:transparent; color:#fff; box-shadow:none; border:1.5px solid rgba(220,185,104,.7);
 }
-.btn--outline:hover{ background:rgba(220,185,104,.14); box-shadow:none; color:var(--gold-soft); }
+.btn--outline:hover{ background:rgba(220,185,104,.14); box-shadow:none; color:var(--c-honey-soft); }
 .btn--wa{ --b:var(--wa); box-shadow:0 6px 18px rgba(37,211,102,.35); }
 .btn--wa:hover{ background:var(--wa-dark); box-shadow:0 14px 30px rgba(37,211,102,.45); }
 .btn--ig{ background:linear-gradient(45deg,#f09433,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888); box-shadow:0 6px 18px rgba(220,39,67,.32); }
@@ -160,7 +175,7 @@ ul{ list-style:none; }
 .btn--map:hover{ background:#128a16; box-shadow:0 12px 24px rgba(25,170,30,.42); }
 
 /* ============ ОЮ-ӨРНЕК ЖОЛАҚТАРЫ ============ */
-.ornament-band{ height:14px; background:var(--navy); background-image:var(--ornament-gold); background-size:auto 100%; background-repeat:repeat-x; }
+.ornament-band{ height:14px; background:var(--c-brand); background-image:var(--ornament-gold); background-size:auto 100%; background-repeat:repeat-x; }
 .footer__band{ height:16px; background-image:var(--ornament-gold); background-size:auto 100%; background-repeat:repeat-x; opacity:.9; }
 
 /* Секция бөлгіш ою (қошқар мүйіз жұбы) */
@@ -178,21 +193,21 @@ ul{ list-style:none; }
 .header.scrolled{ box-shadow:0 6px 24px rgba(16,57,79,.12); background:rgba(244,236,224,.96); }
 .header__inner{ display:flex; align-items:center; justify-content:space-between; height:82px; gap:20px; }
 
-.logo{ display:flex; align-items:center; gap:12px; color:var(--navy); }
-.logo__mark{ color:var(--gold); display:flex; }
-.logo__text{ font-family:var(--head); font-weight:800; font-size:24px; color:var(--navy); letter-spacing:.4px; line-height:1; }
-.logo__text em{ font-style:italic; font-weight:700; color:var(--gold); margin-left:4px; }
+.logo{ display:flex; align-items:center; gap:12px; color:var(--c-brand); }
+.logo__mark{ color:var(--c-honey); display:flex; }
+.logo__text{ font-family:var(--head); font-weight:800; font-size:24px; color:var(--c-brand); letter-spacing:.4px; line-height:1; }
+.logo__text em{ font-style:italic; font-weight:700; color:var(--c-honey); margin-left:4px; }
 
 .nav{ display:flex; gap:4px; }
 .nav__link{
-  font-weight:600; font-size:15px; color:var(--brown-dark);
+  font-weight:600; font-size:15px; color:var(--c-ink-strong);
   padding:9px 16px; border-radius:50px; position:relative; transition:color .2s;
 }
 .nav__link::after{
   content:""; position:absolute; left:16px; right:16px; bottom:4px; height:2px;
-  background:var(--gold); transform:scaleX(0); transform-origin:left; transition:transform .25s;
+  background:var(--c-honey); transform:scaleX(0); transform-origin:left; transition:transform .25s;
 }
-.nav__link:hover{ color:var(--navy); }
+.nav__link:hover{ color:var(--c-brand); }
 .nav__link:hover::after{ transform:scaleX(1); }
 
 .header__actions{ display:flex; align-items:center; gap:12px; }
@@ -200,10 +215,10 @@ ul{ list-style:none; }
 /* Түнгі/күндізгі режим батырмасы */
 .theme-btn{
   width:42px; height:42px; border-radius:50%; cursor:pointer; flex-shrink:0;
-  border:1px solid rgba(200,150,62,.45); background:rgba(122,78,54,.1); color:var(--brown-dark);
+  border:1px solid rgba(200,150,62,.45); background:rgba(122,78,54,.1); color:var(--c-ink-strong);
   display:grid; place-items:center; transition:background .2s, color .2s, transform .2s;
 }
-.theme-btn:hover{ background:var(--gold); color:#fff; transform:translateY(-2px); }
+.theme-btn:hover{ background:var(--c-honey); color:#fff; transform:translateY(-2px); }
 .theme-btn svg{ width:19px; height:19px; }
 .theme-btn .ico-sun{ display:none; }
 [data-theme="dark"] .theme-btn .ico-moon{ display:none; }
@@ -213,20 +228,45 @@ ul{ list-style:none; }
 .lang{ display:flex; background:rgba(122,78,54,.1); border:1px solid rgba(200,150,62,.35); border-radius:50px; padding:3px; }
 .lang__btn{
   border:none; background:none; cursor:pointer; font-family:var(--body); font-weight:700;
-  font-size:12.5px; color:var(--brown); padding:5px 10px; border-radius:50px; transition:color .2s, background .2s; letter-spacing:.5px;
+  font-size:12.5px; color:var(--c-muted); padding:5px 10px; border-radius:50px; transition:color .2s, background .2s; letter-spacing:.5px;
 }
-.lang__btn:hover{ color:var(--navy); }
-.lang__btn.active{ background:var(--navy); color:#fff; box-shadow:0 3px 8px rgba(16,57,79,.25); }
+.lang__btn:hover{ color:var(--c-brand); }
+.lang__btn.active{ background:var(--c-brand); color:#fff; box-shadow:0 3px 8px rgba(16,57,79,.25); }
 .cart-btn{
-  position:relative; background:var(--navy); color:#fff; border:none;
+  position:relative; background:var(--c-brand); color:#fff; border:none; overflow:hidden;
   width:48px; height:48px; border-radius:50%; display:grid; place-items:center; cursor:pointer;
-  transition:transform .2s, background .2s; box-shadow:0 6px 16px rgba(16,57,79,.28);
+  transition:transform .2s, background .2s; box-shadow:0 6px 16px rgba(107,69,38,.3);
 }
-.cart-btn:hover{ transform:translateY(-2px); background:var(--navy-deep); }
+.cart-btn:hover{ transform:translateY(-2px); background:var(--c-deep); }
+.cart-btn svg{ position:relative; z-index:2; }
+
+/* SIGNATURE: себет толған сайын ішіне қымыз құйылады.
+   Деңгейді JS белгілейді (--fill: 0 → 1). */
+.cart-btn__liquid{
+  position:absolute; left:0; right:0; bottom:0; z-index:1;
+  height:calc(var(--fill, 0) * 100%);
+  background:linear-gradient(180deg, var(--c-honey-soft), var(--c-honey));
+  transition:height .5s cubic-bezier(.34,1.4,.64,1);
+  pointer-events:none;
+}
+/* қымыз бетінің толқыны */
+.cart-btn__liquid::before{
+  content:""; position:absolute; left:-50%; right:-50%; top:-4px; height:8px;
+  background:var(--c-honey-soft); border-radius:50%;
+  animation:liquidWave 2.6s ease-in-out infinite;
+}
+@keyframes liquidWave{ 0%,100%{ transform:translateX(-6%) } 50%{ transform:translateX(6%) } }
+
+/* Ұшып бара жатқан тамшы */
+.drop-fly{
+  position:fixed; z-index:400; width:14px; height:14px; border-radius:50% 50% 50% 50%/60% 60% 40% 40%;
+  background:radial-gradient(circle at 35% 30%, #fff8e6, var(--c-honey) 70%);
+  box-shadow:0 0 12px rgba(207,154,58,.75); pointer-events:none;
+}
 .cart-btn__count{
   position:absolute; top:-6px; right:-6px; min-width:22px; height:22px; padding:0 5px;
-  background:var(--gold); color:var(--brown-dark); border-radius:50px;
-  font-size:12px; font-weight:800; display:grid; place-items:center; border:2px solid var(--cream);
+  background:var(--c-honey); color:var(--c-ink-strong); border-radius:50px;
+  font-size:12px; font-weight:800; display:grid; place-items:center; border:2px solid var(--c-bg);
   transform:scale(0); transition:transform .28s cubic-bezier(.34,1.56,.64,1);
 }
 .cart-btn__count.show{ transform:scale(1); }
@@ -234,7 +274,7 @@ ul{ list-style:none; }
 @keyframes bump{ 0%,100%{transform:scale(1)} 30%{transform:scale(1.22)} 60%{transform:scale(.9)} }
 
 .burger{ display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px; }
-.burger span{ width:26px; height:2.5px; background:var(--navy); border-radius:3px; transition:.3s; }
+.burger span{ width:26px; height:2.5px; background:var(--c-brand); border-radius:3px; transition:.3s; }
 .burger.active span:nth-child(1){ transform:translateY(7.5px) rotate(45deg); }
 .burger.active span:nth-child(2){ opacity:0; }
 .burger.active span:nth-child(3){ transform:translateY(-7.5px) rotate(-45deg); }
@@ -283,7 +323,7 @@ ul{ list-style:none; }
 .hero__badge{
   display:inline-flex; align-items:center; gap:8px;
   background:rgba(200,150,62,.16); border:1px solid rgba(220,185,104,.45);
-  color:var(--gold-soft); padding:8px 18px; border-radius:50px; font-size:14px; font-weight:600;
+  color:var(--c-honey-soft); padding:8px 18px; border-radius:50px; font-size:14px; font-weight:600;
   letter-spacing:.5px; margin-bottom:26px;
 }
 .hero__badge::before{ content:""; width:22px; height:12px; background:var(--ornament-gold); background-size:auto 100%; opacity:.9; }
@@ -291,17 +331,17 @@ ul{ list-style:none; }
   font-family:var(--head); font-weight:800; font-size:clamp(36px,5.6vw,64px);
   line-height:1.08; letter-spacing:-.5px; text-shadow:0 4px 26px rgba(0,0,0,.32);
 }
-.hero__title span{ color:var(--gold-soft); font-style:italic; }
+.hero__title span{ color:var(--c-honey-soft); font-style:italic; }
 .hero__text{ font-size:clamp(16px,1.8vw,19px); margin:22px 0 32px; max-width:580px; color:rgba(255,255,255,.9); }
 .hero__actions{ display:flex; gap:14px; flex-wrap:wrap; }
 .hero__stats{ display:flex; align-items:center; gap:28px; margin-top:52px; flex-wrap:wrap; }
 .hero__stats > div:not(.hero__stats-div){ display:flex; flex-direction:column; }
-.hero__stats strong{ font-family:var(--head); font-size:32px; font-weight:800; color:var(--gold-soft); line-height:1; }
+.hero__stats strong{ font-family:var(--head); font-size:32px; font-weight:800; color:var(--c-honey-soft); line-height:1; font-variant-numeric:tabular-nums; }
 .hero__stats span{ font-size:13.5px; color:rgba(255,255,255,.82); margin-top:4px; }
 .hero__stats-div{ width:1px; height:38px; background:rgba(220,185,104,.35); }
 
 .hero__scroll{ position:absolute; bottom:26px; left:50%; transform:translateX(-50%); width:24px; height:40px; border:2px solid rgba(220,185,104,.5); border-radius:14px; display:flex; justify-content:center; padding-top:7px; z-index:2; }
-.hero__scroll span{ width:4px; height:8px; background:var(--gold-soft); border-radius:4px; animation:scrolldot 1.6s infinite; }
+.hero__scroll span{ width:4px; height:8px; background:var(--c-honey-soft); border-radius:4px; animation:scrolldot 1.6s infinite; }
 @keyframes scrolldot{ 0%{opacity:0; transform:translateY(-4px)} 40%{opacity:1} 80%{opacity:0; transform:translateY(10px)} }
 @keyframes fadeUp{ from{opacity:0; transform:translateY(32px)} to{opacity:1; transform:translateY(0)} }
 
@@ -310,50 +350,66 @@ ul{ list-style:none; }
 .section__head{ text-align:center; max-width:640px; margin:0 auto 56px; }
 .section__eyebrow{
   display:inline-block; font-family:var(--body); font-weight:700; font-size:13px;
-  text-transform:uppercase; letter-spacing:3px; color:var(--gold-deep); margin-bottom:12px;
+  text-transform:uppercase; letter-spacing:3px; color:var(--c-honey-deep); margin-bottom:12px;
 }
-.section__title{ font-family:var(--head); font-weight:800; font-size:clamp(30px,4.2vw,46px); color:var(--navy); line-height:1.12; }
-.section__title em{ font-style:italic; color:var(--gold-deep); }
-.section__subtitle{ margin-top:16px; color:var(--brown); font-size:17px; }
+.section__title{ font-family:var(--head); font-weight:800; font-size:clamp(30px,4.2vw,46px); color:var(--c-brand); line-height:1.12; }
+.section__title em{ font-style:italic; color:var(--c-honey-deep); }
+.section__subtitle{ margin-top:16px; color:var(--c-muted); font-size:17px; }
 
 /* ============ PRODUCTS ============ */
 .products{ background:linear-gradient(180deg, transparent, rgba(233,221,199,.5)); }
 .products__grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(290px,1fr)); gap:30px; perspective:1400px; }
 .card{
-  background:var(--cream); border-radius:var(--radius); overflow:hidden;
+  background:var(--c-bg); border-radius:var(--radius); overflow:hidden;
   box-shadow:var(--shadow-sm); border:1px solid rgba(200,150,62,.28);
   display:flex; flex-direction:column;
   transition:transform .4s cubic-bezier(.2,.7,.3,1), box-shadow .32s, border-color .32s;
   position:relative; transform-style:preserve-3d; will-change:transform;
 }
-.card:hover{ transform:translateY(-9px) rotateX(4deg) rotateY(-4deg); box-shadow:var(--shadow-lg); border-color:var(--gold); }
+.card:hover{ transform:translateY(-9px) rotateX(4deg) rotateY(-4deg); box-shadow:var(--shadow-lg); border-color:var(--c-honey); }
 .card.tilt{ transition:box-shadow .32s, border-color .32s; } /* JS басқарғанда transform-ты бірден қолдану */
 .card__vessel{
   height:220px; position:relative; display:flex; align-items:center; justify-content:center;
   background:
     radial-gradient(circle at 50% 40%, rgba(28,80,105,.55), transparent 62%),
-    var(--navy);
-  color:var(--gold-soft); overflow:hidden;
+    var(--c-brand);
+  color:var(--c-honey-soft); overflow:hidden;
 }
+/* hover: артындағы ою жарқырайды (бөтелке зумдалмайды — қиылып қалар еді) */
+.card:hover .card__vessel::before{ opacity:.75; }
 .card__vessel::before{
-  content:""; position:absolute; inset:0; opacity:.4;
+  content:""; position:absolute; inset:0; opacity:.4; transition:opacity .35s;
   background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23dcb968' stroke-opacity='0.2' stroke-width='1.6'%3E%3Cpath d='M60 60 C48 60 40 54 40 44 C40 37 46 35 50 39 C54 43 48 49 43 45'/%3E%3Cpath d='M60 60 C72 60 80 54 80 44 C80 37 74 35 70 39 C66 43 72 49 77 45'/%3E%3C/g%3E%3C/svg%3E");
   background-size:120px;
 }
 .card__vessel svg{ position:relative; z-index:1; height:200px; width:auto; filter:drop-shadow(0 10px 18px rgba(0,0,0,.4)); transition:transform .4s; }
 .card:hover .card__vessel svg{ transform:translateY(-4px) scale(1.05); }
 .card__tag{
-  position:absolute; top:0; left:22px; z-index:2; background:var(--gold); color:var(--brown-dark);
+  position:absolute; top:0; left:22px; z-index:2; background:var(--c-honey); color:var(--c-ink-strong);
   font-size:12px; font-weight:800; letter-spacing:.5px; padding:6px 14px 7px; border-radius:0 0 8px 8px; box-shadow:var(--shadow-sm);
 }
 .card__body{ padding:24px; display:flex; flex-direction:column; flex:1; gap:8px; }
-.card__name{ font-family:var(--head); font-weight:700; font-size:23px; color:var(--navy); line-height:1.2; }
-.card__desc{ font-size:14px; color:var(--brown); flex:1; }
+.card__name{ font-family:var(--head); font-weight:700; font-size:23px; color:var(--c-brand); line-height:1.2; }
+.card__desc{ font-size:14px; color:var(--c-muted); flex:1; }
 .card__meta{ display:flex; align-items:center; justify-content:space-between; margin:14px 0 6px; padding-top:14px; border-top:1px dashed rgba(111,78,46,.28); }
-.card__vol{ font-size:13px; font-weight:700; color:var(--navy); background:rgba(16,57,79,.08); padding:5px 13px; border-radius:50px; }
-.card__price{ font-family:var(--head); font-weight:800; font-size:26px; color:var(--gold-deep); }
-.card__price small{ font-size:16px; font-weight:700; }
+.card__vol{
+  font-size:13px; font-weight:700; color:var(--c-brand);
+  background:rgba(107,69,38,.09); padding:5px 13px; border-radius:var(--radius-pill);
+  font-variant-numeric:tabular-nums;
+}
+/* Баға: сан ірі серифпен, ₸ белгісі кішірек әрі солғын.
+   tabular-nums → карточкалардағы бағалар тік теңесіп тұрады. */
+.card__price{
+  font-family:var(--head); font-weight:800; font-size:26px; color:var(--c-honey-deep);
+  font-variant-numeric:tabular-nums; letter-spacing:.2px;
+}
+.card__price small{ font-size:15px; font-weight:700; opacity:.6; margin-left:1px; }
 .card__btn{ width:100%; margin-top:10px; }
+/* батырманың 3-ші күйі: құйылды */
+.card__btn.is-added{
+  background:var(--c-brand); color:var(--c-honey-soft);
+  box-shadow:0 6px 18px rgba(107,69,38,.4);
+}
 
 /* ============ ABOUT ============ */
 .about{
@@ -369,62 +425,62 @@ ul{ list-style:none; }
 .about__media{ position:relative; }
 .about__frame{
   position:relative; border-radius:var(--radius); overflow:hidden;
-  border:3px solid var(--gold); box-shadow:var(--shadow-md);
-  padding:8px; background:var(--navy);
+  border:3px solid var(--c-honey); box-shadow:var(--shadow-md);
+  padding:8px; background:var(--c-brand);
 }
 .about__frame::after{
   content:""; position:absolute; inset:8px; border:1px solid rgba(220,185,104,.5); border-radius:8px; pointer-events:none; z-index:2;
 }
 .about__art{ display:block; width:100%; height:480px; object-fit:cover; border-radius:8px; transition:filter .35s ease; }
 .about__badge{
-  position:absolute; right:-14px; bottom:24px; z-index:3; background:var(--gold);
-  color:var(--brown-dark); border-radius:var(--radius-sm); padding:16px 22px; box-shadow:var(--shadow-lg);
-  text-align:center; border:2px solid var(--cream);
+  position:absolute; right:-14px; bottom:24px; z-index:3; background:var(--c-honey);
+  color:var(--c-ink-strong); border-radius:var(--radius-sm); padding:16px 22px; box-shadow:var(--shadow-lg);
+  text-align:center; border:2px solid var(--c-bg);
 }
 .about__badge strong{ display:block; font-family:var(--head); font-size:30px; font-weight:800; line-height:1; }
 .about__badge span{ font-size:12px; font-weight:600; }
 .about__content .section__title{ margin:10px 0 18px; }
-.about__lead{ color:var(--brown); font-size:16.5px; margin-bottom:26px; }
+.about__lead{ color:var(--c-muted); font-size:16.5px; margin-bottom:26px; }
 .about__list{ display:flex; flex-direction:column; gap:18px; margin-bottom:30px; }
 .about__list li{ display:flex; gap:16px; align-items:flex-start; }
-.about__ico{ color:var(--gold-deep); background:var(--cream-2); width:52px; height:52px; border-radius:14px; display:grid; place-items:center; flex-shrink:0; border:1px solid rgba(200,150,62,.3); }
-.about__list strong{ font-family:var(--head); color:var(--navy); font-size:17px; }
-.about__list p{ font-size:14px; color:var(--brown); }
+.about__ico{ color:var(--c-honey-deep); background:var(--c-surface); width:52px; height:52px; border-radius:14px; display:grid; place-items:center; flex-shrink:0; border:1px solid rgba(200,150,62,.3); }
+.about__list strong{ font-family:var(--head); color:var(--c-brand); font-size:17px; }
+.about__list p{ font-size:14px; color:var(--c-muted); }
 
 /* ============ QUOTE ============ */
-.quote{ position:relative; background:var(--navy); color:#fff; padding:40px 0; text-align:center; overflow:hidden; }
+.quote{ position:relative; background:var(--c-brand); color:#fff; padding:40px 0; text-align:center; overflow:hidden; }
 .quote__pattern{ position:absolute; inset:0; opacity:.4; background:var(--ornament-gold); background-size:auto 30px; background-repeat:repeat; }
 .quote .container{ position:relative; z-index:1; }
-.quote__text{ font-family:var(--head); font-style:italic; font-weight:700; font-size:clamp(22px,3.4vw,34px); color:var(--gold-soft); max-width:820px; margin:0 auto; line-height:1.4; }
+.quote__text{ font-family:var(--head); font-style:italic; font-weight:700; font-size:clamp(22px,3.4vw,34px); color:var(--c-honey-soft); max-width:820px; margin:0 auto; line-height:1.4; }
 .quote__author{ display:inline-block; margin-top:10px; font-size:15px; color:rgba(255,255,255,.7); letter-spacing:1px; }
 
 /* ============ CONTACT ============ */
 .contact{ background:linear-gradient(180deg, rgba(233,221,199,.5), transparent); }
 .contact__grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:24px; }
 .contact__card{
-  background:var(--cream); border-radius:var(--radius); padding:32px 26px; text-align:center;
+  background:var(--c-bg); border-radius:var(--radius); padding:32px 26px; text-align:center;
   box-shadow:var(--shadow-sm); border:1px solid rgba(200,150,62,.25); transition:transform .28s, box-shadow .28s;
 }
 .contact__card:hover{ transform:translateY(-7px); box-shadow:var(--shadow-md); }
-.contact__ico{ color:var(--gold-deep); width:60px; height:60px; margin:0 auto 16px; border-radius:50%; display:grid; place-items:center; background:var(--cream-2); border:1px solid rgba(200,150,62,.3); }
-.contact__card h3{ font-family:var(--head); color:var(--navy); font-size:20px; margin-bottom:8px; }
-.contact__card p{ color:var(--brown); font-size:15px; }
-.contact__card a{ color:var(--navy); font-weight:700; }
+.contact__ico{ color:var(--c-honey-deep); width:60px; height:60px; margin:0 auto 16px; border-radius:50%; display:grid; place-items:center; background:var(--c-surface); border:1px solid rgba(200,150,62,.3); }
+.contact__card h3{ font-family:var(--head); color:var(--c-brand); font-size:20px; margin-bottom:8px; }
+.contact__card p{ color:var(--c-muted); font-size:15px; }
+.contact__card a{ color:var(--c-brand); font-weight:700; }
 .contact__card .btn--map{ color:#fff; margin-top:14px; }
 
 /* Телефон нөмірі — таза жазу, басқанда қоңырау шалады */
 .contact__card .phone-link{
   display:inline-flex; align-items:center; gap:8px;
-  font-family:var(--head); font-weight:800; font-size:20px; color:var(--navy);
+  font-family:var(--head); font-weight:800; font-size:20px; color:var(--c-brand);
   transition:color .22s, transform .2s;
   cursor:pointer; white-space:nowrap;
 }
 /* қоңырау белгісі баяу «шылдырлап» тұрады — басылатынын білдіру үшін */
 .contact__card .phone-link svg{
-  color:var(--gold-deep); flex-shrink:0; transform-origin:center;
+  color:var(--c-honey-deep); flex-shrink:0; transform-origin:center;
   animation:phoneRing 3s ease-in-out infinite;
 }
-.contact__card .phone-link:hover{ color:var(--gold-deep); transform:scale(1.05); }
+.contact__card .phone-link:hover{ color:var(--c-honey-deep); transform:scale(1.05); }
 .contact__card .phone-link:hover svg{ animation-play-state:paused; }
 .contact__card .phone-link:active{ transform:scale(.98); }
 @keyframes phoneRing{
@@ -443,9 +499,9 @@ ul{ list-style:none; }
 .contact__card--ig .btn{ margin-top:16px; }
 
 /* ============ FOOTER ============ */
-.footer{ background:var(--navy-deep); color:rgba(255,255,255,.85); }
+.footer{ background:var(--c-deep); color:rgba(255,255,255,.85); }
 .footer__inner{ display:flex; flex-wrap:wrap; gap:26px; justify-content:space-between; align-items:center; padding-top:48px; padding-bottom:28px; }
-.footer__brand .logo__text{ color:#fff; } .footer__brand .logo__text em{ color:var(--gold-soft); }
+.footer__brand .logo__text{ color:#fff; } .footer__brand .logo__text em{ color:var(--c-honey-soft); }
 .footer__brand p{ font-size:14px; margin-top:8px; max-width:320px; color:rgba(255,255,255,.65); }
 .footer__social{ display:flex; gap:12px; margin-top:16px; }
 .footer__soc-btn{ width:42px; height:42px; border-radius:50%; display:grid; place-items:center; color:#fff; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.15); transition:transform .2s, background .25s; }
@@ -455,7 +511,7 @@ ul{ list-style:none; }
 .footer__soc-btn:nth-child(3):hover{ background:#19aa1e; border-color:transparent; } /* 2GIS */
 .footer__links{ display:flex; gap:24px; flex-wrap:wrap; }
 .footer__links a{ font-size:15px; font-weight:500; transition:color .2s; }
-.footer__links a:hover{ color:var(--gold-soft); }
+.footer__links a:hover{ color:var(--c-honey-soft); }
 .footer__copy{ text-align:center; font-size:13px; color:rgba(255,255,255,.5); border-top:1px solid rgba(255,255,255,.1); padding:22px; margin:0; }
 
 /* ============ CART SIDEBAR ============ */
@@ -463,27 +519,27 @@ ul{ list-style:none; }
 .cart-overlay.open{ opacity:1; visibility:visible; }
 .cart{
   position:fixed; top:0; right:0; height:100%; width:410px; max-width:100%;
-  background:var(--cream); z-index:210; box-shadow:-14px 0 44px rgba(0,0,0,.24);
+  background:var(--c-bg); z-index:210; box-shadow:-14px 0 44px rgba(0,0,0,.24);
   display:flex; flex-direction:column; transform:translateX(105%); transition:transform .38s cubic-bezier(.4,0,.2,1);
 }
 .cart.open{ transform:translateX(0); }
 /* ---- Себет тақырыбы (ою жолағымен) ---- */
-.cart__head{ position:relative; display:flex; align-items:center; justify-content:space-between; padding:22px 24px 28px; background:var(--navy); color:#fff; flex-shrink:0; }
+.cart__head{ position:relative; display:flex; align-items:center; justify-content:space-between; padding:22px 24px 28px; background:var(--c-brand); color:#fff; flex-shrink:0; }
 .cart__head h3{ font-family:var(--head); font-size:24px; letter-spacing:.3px; }
 .cart__head::after{
   content:""; position:absolute; left:0; right:0; bottom:0; height:11px;
   background-image:var(--ornament-gold); background-size:auto 100%; background-repeat:repeat-x; opacity:.95;
 }
 .cart__close{ background:none; border:none; font-size:34px; line-height:1; color:rgba(255,255,255,.8); cursor:pointer; transition:transform .25s, color .2s; }
-.cart__close:hover{ color:var(--gold-soft); transform:rotate(90deg); }
+.cart__close:hover{ color:var(--c-honey-soft); transform:rotate(90deg); }
 
 /* ---- Себет ішіндегі пергамент фоны ---- */
 .cart__body{
   flex:1; overflow-y:auto; padding:6px 22px 16px;
   background-image:var(--ornament-faint); background-size:170px;
 }
-.cart__empty{ text-align:center; color:var(--brown); padding:64px 20px; }
-.cart__empty svg{ width:64px; height:64px; margin:0 auto 14px; color:var(--gold); opacity:.5; }
+.cart__empty{ text-align:center; color:var(--c-muted); padding:64px 20px; }
+.cart__empty svg{ width:64px; height:64px; margin:0 auto 14px; color:var(--c-honey); opacity:.5; }
 .cart__empty p{ font-size:15px; line-height:1.6; }
 
 /* ---- Тауар жолы ---- */
@@ -500,7 +556,7 @@ ul{ list-style:none; }
 .cart-item__thumb{
   position:relative; overflow:hidden; flex-shrink:0;
   width:72px; height:82px; border-radius:12px;
-  background:radial-gradient(circle at 50% 32%, #8a5e36, var(--navy) 72%);
+  background:radial-gradient(circle at 50% 32%, #8a5e36, var(--c-brand) 72%);
   border:1.5px solid rgba(200,150,62,.5);
   display:grid; place-items:center;
   box-shadow:0 4px 12px rgba(74,48,24,.25);
@@ -513,38 +569,38 @@ ul{ list-style:none; }
 
 .cart-item__info{ flex:1; min-width:0; padding-top:2px; }
 .cart-item__top{ display:flex; align-items:flex-start; justify-content:space-between; gap:8px; }
-.cart-item__name{ font-family:var(--head); font-weight:700; color:var(--navy); font-size:17px; line-height:1.25; }
-.cart-item__vol{ font-size:12.5px; color:var(--brown); margin-top:3px; }
+.cart-item__name{ font-family:var(--head); font-weight:700; color:var(--c-brand); font-size:17px; line-height:1.25; }
+.cart-item__vol{ font-size:12.5px; color:var(--c-muted); margin-top:3px; }
 .cart-item__row{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:12px; }
-.cart-item__price{ font-family:var(--head); font-weight:800; color:var(--gold-deep); font-size:18px; white-space:nowrap; }
+.cart-item__price{ font-family:var(--head); font-weight:800; color:var(--c-honey-deep); font-size:18px; white-space:nowrap; font-variant-numeric:tabular-nums; }
 
 /* ---- Алтын дөңгелек +/− басқышы ---- */
 .cart-item__qty{
   display:inline-flex; align-items:center; gap:2px;
-  background:var(--cream-2); border:1px solid rgba(200,150,62,.45); border-radius:50px; padding:3px;
+  background:var(--c-surface); border:1px solid rgba(200,150,62,.45); border-radius:50px; padding:3px;
 }
 .qty-btn{
   width:26px; height:26px; border-radius:50%; border:none; background:transparent;
-  color:var(--brown-dark); font-size:15px; font-weight:800; cursor:pointer;
+  color:var(--c-ink-strong); font-size:15px; font-weight:800; cursor:pointer;
   display:grid; place-items:center; transition:background .2s, color .2s;
 }
-.qty-btn:hover{ background:var(--gold); color:#fff; }
-.qty-num{ min-width:26px; text-align:center; font-family:var(--head); font-weight:800; font-size:15px; color:var(--navy); }
+.qty-btn:hover{ background:var(--c-honey); color:#fff; }
+.qty-num{ min-width:26px; text-align:center; font-family:var(--head); font-weight:800; font-size:15px; color:var(--c-brand); font-variant-numeric:tabular-nums; }
 
 .cart-item__remove{ background:none; border:none; color:#b23b2e; cursor:pointer; padding:2px; opacity:.5; transition:opacity .2s, transform .2s; flex-shrink:0; }
 .cart-item__remove:hover{ opacity:1; transform:scale(1.15); }
 .cart-item__remove svg{ width:17px; height:17px; }
 
 /* ---- Себет төменгі бөлігі (ою жолағымен) ---- */
-.cart__footer{ position:relative; padding:28px 24px 20px; background:var(--cream-2); flex-shrink:0; }
+.cart__footer{ position:relative; padding:28px 24px 20px; background:var(--c-surface); flex-shrink:0; }
 .cart__footer::before{
   content:""; position:absolute; left:0; right:0; top:0; height:11px;
-  background:var(--navy); background-image:var(--ornament-gold); background-size:auto 100%; background-repeat:repeat-x;
+  background:var(--c-brand); background-image:var(--ornament-gold); background-size:auto 100%; background-repeat:repeat-x;
 }
 .cart__total{ display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; }
-.cart__total span{ color:var(--brown); font-size:15px; }
-.cart__total strong{ font-family:var(--head); font-size:28px; color:var(--gold-deep); }
-.cart__note{ font-size:12px; color:var(--brown); text-align:center; margin-top:10px; }
+.cart__total span{ color:var(--c-muted); font-size:15px; }
+.cart__total strong{ font-family:var(--head); font-size:28px; color:var(--c-honey-deep); font-variant-numeric:tabular-nums; }
+.cart__note{ font-size:12px; color:var(--c-muted); text-align:center; margin-top:10px; }
 
 /* ============ STICKY WHATSAPP ============ */
 .wa-float{
@@ -558,12 +614,22 @@ ul{ list-style:none; }
 /* ============ TOAST ============ */
 .toast{
   position:fixed; bottom:30px; left:50%; transform:translateX(-50%) translateY(120px);
-  background:var(--navy); color:#fff; padding:14px 26px; border-radius:50px;
+  background:var(--c-brand); color:#fff; padding:14px 26px; border-radius:50px;
   font-weight:600; box-shadow:var(--shadow-lg); z-index:300; opacity:0;
   transition:.38s cubic-bezier(.34,1.56,.64,1); display:flex; align-items:center; gap:10px;
-  border:1.5px solid var(--gold); font-size:15px; max-width:90vw;
+  border:1.5px solid var(--c-honey); font-size:15px; max-width:90vw;
 }
 .toast.show{ transform:translateX(-50%) translateY(0); opacity:1; }
+
+/* ============================================================
+   СКРОЛЛ REVEAL — элементтер төменнен жұмсақ көтеріледі.
+   .reveal класын JS қояды; JS болмаса — бәрі көрініп тұрады.
+   ============================================================ */
+.reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s cubic-bezier(.2,.7,.3,1); }
+.reveal.in{ opacity:1; transform:none; }
+@media (prefers-reduced-motion:reduce){
+  .reveal{ opacity:1; transform:none; transition:none; }
+}
 
 /* ============ RESPONSIVE ============ */
 @media (max-width:980px){
@@ -586,7 +652,7 @@ ul{ list-style:none; }
 @media (max-width:768px){
   .nav{
     position:fixed; top:70px; right:0; width:min(300px,84%); height:calc(100vh - 70px);
-    background:var(--cream); flex-direction:column; padding:26px; gap:6px;
+    background:var(--c-bg); flex-direction:column; padding:26px; gap:6px;
     box-shadow:-10px 0 34px rgba(0,0,0,.16); transform:translateX(105%); transition:transform .32s;
     border-left:1px solid rgba(200,150,62,.3); z-index:99;
   }
@@ -603,6 +669,23 @@ ul{ list-style:none; }
   .hero__stats{ gap:22px; }
   .products__grid{ gap:22px; perspective:none; }
   .card:hover{ transform:translateY(-6px); } /* мобильде 3D бұрыш жоқ */
+
+  /* ---- Себет: оң жақтан емес, ТӨМЕННЕН көтеріледі (bottom sheet) ---- */
+  .cart{
+    top:auto; bottom:0; left:0; right:0;
+    width:100%; max-width:100%; height:auto; max-height:88svh;
+    border-radius:22px 22px 0 0; overflow:hidden;
+    transform:translateY(103%);
+    box-shadow:0 -14px 44px rgba(0,0,0,.3);
+  }
+  .cart.open{ transform:translateY(0); }
+  /* жоғарғы «тұтқа» — тартып жабуға болатынын білдіреді */
+  .cart__head{ padding-top:16px; }
+  .cart__head::before{
+    content:""; position:absolute; top:7px; left:50%; transform:translateX(-50%);
+    width:42px; height:4px; border-radius:4px; background:rgba(255,255,255,.35);
+  }
+  .cart__body{ max-height:52svh; }
   .about__art{ height:340px; }              /* телефонда сурет кішірек */
   .about__media{ max-width:400px; }
   .quote{ padding:30px 0; }
@@ -653,19 +736,19 @@ ul{ list-style:none; }
 /* ============================================================
    ТҮНГІ РЕЖИМ (dark mode)
    Ашық беттер қараяды, алтын мен ою-өрнек сол қалпында қалады.
-   --navy фон ретінде де, мәтін ретінде де қолданылатындықтан,
+   --c-brand фон ретінде де, мәтін ретінде де қолданылатындықтан,
    мәтін болып тұрған жерлері бөлек жарықтандырылады.
    ============================================================ */
 [data-theme="dark"]{
-  --cream:      #2a1e12;   /* беттің фоны (жылы қоңыр, тым қара емес) */
-  --cream-2:    #3a2a1a;   /* карточка/қосымша фон */
-  --brown:      #cbb69a;   /* екінші дәрежелі мәтін */
-  --brown-dark: #ebe0c8;
-  --ink:        #f2e8d5;   /* негізгі мәтін */
-  --gold:       #d9a648;
-  --gold-soft:  #edd28e;
-  --gold-deep:  #e2b763;   /* мәтін ретінде де қолданылады → жарық */
-  --navy-deep:  #1f1408;
+  --c-bg:      #2a1e12;   /* беттің фоны (жылы қоңыр, тым қара емес) */
+  --c-surface:    #3a2a1a;   /* карточка/қосымша фон */
+  --c-muted:      #cbb69a;   /* екінші дәрежелі мәтін */
+  --c-ink-strong: #ebe0c8;
+  --c-ink:        #f2e8d5;   /* негізгі мәтін */
+  --c-honey:       #d9a648;
+  --c-honey-soft:  #edd28e;
+  --c-honey-deep:  #e2b763;   /* мәтін ретінде де қолданылады → жарық */
+  --c-deep:  #1f1408;
   --shadow-sm: 0 3px 14px rgba(0,0,0,.45);
   --shadow-md: 0 14px 40px rgba(0,0,0,.55);
   --shadow-lg: 0 26px 60px rgba(0,0,0,.65);
@@ -676,7 +759,7 @@ ul{ list-style:none; }
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cg fill='none' stroke='%23cf9a3a' stroke-opacity='0.06' stroke-width='2'%3E%3Cpath d='M70 70 C55 70 44 62 44 50 C44 41 52 38 57 43 C62 48 55 56 48 51'/%3E%3Cpath d='M70 70 C85 70 96 62 96 50 C96 41 88 38 83 43 C78 48 85 56 92 51'/%3E%3Cpath d='M70 70 C55 70 44 78 44 90 C44 99 52 102 57 97 C62 92 55 84 48 89'/%3E%3Cpath d='M70 70 C85 70 96 78 96 90 C96 99 88 102 83 97 C78 92 85 84 92 89'/%3E%3C/g%3E%3C/svg%3E");
 }
 
-/* --navy мәтін болып тұрған жерлер → жарық алтын */
+/* --c-brand мәтін болып тұрған жерлер → жарық алтын */
 [data-theme="dark"] .logo__text,
 [data-theme="dark"] .section__title,
 [data-theme="dark"] .card__name,
@@ -687,10 +770,10 @@ ul{ list-style:none; }
 [data-theme="dark"] .cart__total strong,
 [data-theme="dark"] .qty-num,
 [data-theme="dark"] .contact__card .phone-link,
-[data-theme="dark"] .nav__link:hover{ color:var(--gold-soft); }
+[data-theme="dark"] .nav__link:hover{ color:var(--c-honey-soft); }
 
-[data-theme="dark"] .card__vol{ color:var(--gold-soft); background:rgba(207,154,58,.14); }
-[data-theme="dark"] .burger span{ background:var(--gold-soft); }
+[data-theme="dark"] .card__vol{ color:var(--c-honey-soft); background:rgba(207,154,58,.14); }
+[data-theme="dark"] .burger span{ background:var(--c-honey-soft); }
 
 /* жартылай мөлдір ашық фондар → қара */
 [data-theme="dark"] .header{ background:rgba(42,30,18,.86); }
@@ -713,17 +796,17 @@ ul{ list-style:none; }
 
 /* «Біз туралы» фотосы да қараңғылайды (түнде көзге ұрмауы үшін) */
 [data-theme="dark"] .about__art{ filter:brightness(.45) contrast(1.08) saturate(.8); }
-[data-theme="dark"] .about__frame{ background:var(--navy-deep); }
+[data-theme="dark"] .about__frame{ background:var(--c-deep); }
 
 /* ұсақ түзетулер */
 [data-theme="dark"] .card__meta{ border-top-color:rgba(207,154,58,.25); }
 [data-theme="dark"] .cart-item__thumb{ border-color:rgba(200,150,62,.4); }
-[data-theme="dark"] .about__ico{ background:var(--cream-2); border-color:rgba(200,150,62,.35); }
-[data-theme="dark"] .theme-btn{ color:var(--gold-soft); border-color:rgba(200,150,62,.4); background:rgba(207,154,58,.12); }
-[data-theme="dark"] .theme-btn:hover{ color:var(--brown-dark); }
+[data-theme="dark"] .about__ico{ background:var(--c-surface); border-color:rgba(200,150,62,.35); }
+[data-theme="dark"] .theme-btn{ color:var(--c-honey-soft); border-color:rgba(200,150,62,.4); background:rgba(207,154,58,.12); }
+[data-theme="dark"] .theme-btn:hover{ color:var(--c-ink-strong); }
 [data-theme="dark"] .lang{ background:rgba(207,154,58,.1); }
-[data-theme="dark"] .lang__btn{ color:var(--brown); }
-[data-theme="dark"] .lang__btn.active{ background:var(--gold); color:#2b1d10; }
+[data-theme="dark"] .lang__btn{ color:var(--c-muted); }
+[data-theme="dark"] .lang__btn.active{ background:var(--c-honey); color:#2b1d10; }
 
 /* тақырып ауысқанда жұмсақ өту */
 body, .card, .contact__card, .cart, .cart__body, .header, .about__ico, .cart-item__qty{
@@ -778,6 +861,7 @@ body, .card, .contact__card, .cart, .cart__body, .header, .about__ico, .cart-ite
           <button class="lang__btn" data-lang="en">EN</button>
         </div>
         <button class="cart-btn" id="cartBtn" aria-label="Себетті ашу">
+          <span class="cart-btn__liquid" id="cartLiquid" aria-hidden="true"></span>
           <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
             <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
@@ -1128,8 +1212,8 @@ body, .card, .contact__card, .cart, .cart__body, .header, .about__ico, .cart-ite
         <span data-i18n="cart_total">Жалпы сома:</span>
         <strong id="cartTotal">0 ₸</strong>
       </div>
-      <button class="btn btn--wa btn--block" id="checkoutBtn" data-i18n="cart_checkout">Тапсырысты растау</button>
-      <p class="cart__note" data-i18n="cart_note">Растасаңыз, тапсырыс WhatsApp-қа жіберіледі</p>
+      <button class="btn btn--wa btn--block" id="checkoutBtn" data-i18n="cart_checkout">WhatsApp-пен тапсырыс беру</button>
+      <p class="cart__note" data-i18n="cart_note">Тапсырыс WhatsApp арқылы жіберіледі</p>
     </div>
   </aside>
 
@@ -1359,7 +1443,10 @@ const I18N = {
   prod_eyebrow:    { kz:"Біздің өнімдер", ru:"Наша продукция", en:"Our products" },
   prod_title:      { kz:"Қымыз түрлері", ru:"Виды кумыса", en:"Types of kumis" },
   prod_subtitle:   { kz:"Әр талғамға сай, дәстүрлі әдіспен дайындалған қымыз", ru:"Кумыс на любой вкус, приготовленный традиционным способом", en:"Kumis for every taste, made the traditional way" },
-  add_to_cart:     { kz:"Себетке қосу", ru:"В корзину", en:"Add to cart" },
+  // «құю» метафорасы қазақшада табиғи естіледі; орысша/ағылшыншада
+  // мәжбүрлемей, әдеттегі нұсқасын қалдырдық (әйтпесе оғаш шығады).
+  add_to_cart:     { kz:"Себетке құю", ru:"В корзину", en:"Add to cart" },
+  added_ok:        { kz:"Құйылды", ru:"Готово", en:"Added" },
 
   about_badge:     { kz:"табиғи бие сүті", ru:"натуральное кобылье молоко", en:"natural mare's milk" },
   about_eyebrow:   { kz:"Біз туралы", ru:"О нас", en:"About us" },
@@ -1394,13 +1481,14 @@ const I18N = {
 
   cart_title:      { kz:"Себет", ru:"Корзина", en:"Cart" },
   cart_total:      { kz:"Жалпы сома:", ru:"Итого:", en:"Total:" },
-  cart_checkout:   { kz:"Тапсырысты растау", ru:"Оформить заказ", en:"Confirm order" },
-  cart_note:       { kz:"Растасаңыз, тапсырыс WhatsApp-қа жіберіледі", ru:"После подтверждения заказ отправится в WhatsApp", en:"On confirmation, your order is sent to WhatsApp" },
-  cart_empty:      { kz:"Себет әзірге бос.<br>Қымыз таңдап, тапсырыс беріңіз!", ru:"Корзина пока пуста.<br>Выберите кумыс и оформите заказ!", en:"Your cart is empty.<br>Pick a kumis and place an order!" },
+  cart_checkout:   { kz:"WhatsApp-пен тапсырыс беру", ru:"Заказать через WhatsApp", en:"Order via WhatsApp" },
+  cart_note:       { kz:"Тапсырыс WhatsApp арқылы жіберіледі", ru:"Заказ отправится через WhatsApp", en:"Your order is sent via WhatsApp" },
+  cart_empty:      { kz:"Кесе әлі бос.<br>Қымыз таңдаңыз", ru:"Пиала пока пуста.<br>Выберите кумыс", en:"The bowl is still empty.<br>Choose your kumis" },
   cart_vol:        { kz:"Көлемі:", ru:"Объём:", en:"Volume:" },
 
-  toast_added:     { kz:" себетке қосылды", ru:" добавлен в корзину", en:" added to cart" },
-  toast_empty:     { kz:"Себет бос — алдымен тауар қосыңыз", ru:"Корзина пуста — сначала добавьте товар", en:"Cart is empty — add an item first" },
+  toast_added:     { kz:" себетке құйылды", ru:" добавлен в корзину", en:" added to cart" },
+  // Қате хабары кешірім сұрамайды — не істеу керегін айтады
+  toast_empty:     { kz:"Алдымен қымыз таңдаңыз", ru:"Сначала выберите кумыс", en:"Choose a kumis first" },
   wa_intro:        { kz:"Сәлеметсіз бе! Мен осы қымыздарға тапсырыс бергім келеді:", ru:"Здравствуйте! Я хочу заказать этот кумыс:", en:"Hello! I would like to order this kumis:" },
   wa_pcs:          { kz:"дана", ru:"шт", en:"pcs" },
   wa_total:        { kz:"Жалпы сома:", ru:"Итого:", en:"Total:" },
@@ -1465,7 +1553,7 @@ function renderProducts() {
 /* ============================================================
    СЕБЕТ ЛОГИКАСЫ
    ============================================================ */
-function addToCart(id) {
+function addToCart(id, sourceEl) {
   const product = getP(id);
   if (!product) return;
 
@@ -1475,7 +1563,64 @@ function addToCart(id) {
 
   renderCart();
   bumpCartIcon();
+  if (sourceEl) {
+    flyDrop(sourceEl);        // SIGNATURE: тамшы себетке ұшады
+    markButtonAdded(sourceEl); // батырма «Құйылды ✓» болады
+  }
   showToast(`«${product.name[LANG]}»${t("toast_added")}`);
+}
+
+/* ============================================================
+   SIGNATURE — «құйылу» метафорасы
+   Тамшы бөтелкеден себетке ұшады, себет иконкасы толады.
+   ============================================================ */
+const REDUCED_MOTION = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function flyDrop(sourceEl) {
+  if (REDUCED_MOTION) return;
+  const card = sourceEl.closest(".card");
+  const from = (card ? card.querySelector(".card__vessel") : sourceEl).getBoundingClientRect();
+  const to = cartBtn.getBoundingClientRect();
+
+  const drop = document.createElement("span");
+  drop.className = "drop-fly";
+  document.body.appendChild(drop);
+
+  const x0 = from.left + from.width / 2, y0 = from.top + from.height / 2;
+  const x1 = to.left + to.width / 2,     y1 = to.top + to.height / 2;
+
+  drop.style.left = `${x0 - 7}px`;
+  drop.style.top  = `${y0 - 7}px`;
+
+  // доға сызып ұшады (ортасында жоғары көтеріледі)
+  const anim = drop.animate([
+    { transform: "translate(0,0) scale(1)",  opacity: 1 },
+    { transform: `translate(${(x1-x0)*0.5}px, ${(y1-y0)*0.5 - 70}px) scale(1.25)`, opacity: 1, offset: 0.55 },
+    { transform: `translate(${x1-x0}px, ${y1-y0}px) scale(.35)`, opacity: 0 },
+  ], { duration: 720, easing: "cubic-bezier(.4,.1,.5,1)" });
+
+  anim.onfinish = () => drop.remove();
+}
+
+/* Себет иконкасының толуы: 6 данада толық болады */
+function updateCartFill() {
+  const el = document.getElementById("cartLiquid");
+  if (!el) return;
+  el.style.setProperty("--fill", Math.min(getCount() / 6, 1).toFixed(2));
+}
+
+/* Батырманың 3-ші күйі: «Құйылды ✓» (1.2 сек) */
+function markButtonAdded(btn) {
+  if (btn.dataset.busy) return;
+  btn.dataset.busy = "1";
+  const original = btn.textContent;
+  btn.textContent = `${t("added_ok")} ✓`;
+  btn.classList.add("is-added");
+  setTimeout(() => {
+    btn.textContent = original;
+    btn.classList.remove("is-added");
+    delete btn.dataset.busy;
+  }, 1200);
 }
 
 function changeQty(id, delta) {
@@ -1498,13 +1643,18 @@ function renderCart() {
   const count = getCount();
   cartCount.textContent = count;
   cartCount.classList.toggle("show", count > 0);
+  updateCartFill();   // себет иконкасының қымыз деңгейі
 
   if (cart.length === 0) {
+    // Бос күй: ою-өрнекті бос кесе (себет иконкасы емес — бренд тілінде)
     cartBody.innerHTML = `
       <div class="cart__empty">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
-          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        <svg viewBox="0 0 120 100" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <ellipse cx="60" cy="34" rx="42" ry="10"/>
+          <path d="M18 34 C20 58 36 76 60 76 C84 76 100 58 102 34"/>
+          <path d="M27 45 q7 5 14 0 q7 -5 14 0 q7 5 14 0 q7 -5 14 0" stroke-opacity=".55" stroke-width="2"/>
+          <path d="M48 76 L50 88 Q60 93 70 88 L72 76"/>
+          <ellipse cx="60" cy="89" rx="11" ry="3.5"/>
         </svg>
         <p>${t("cart_empty")}</p>
       </div>`;
@@ -1609,7 +1759,7 @@ document.addEventListener("click", (e) => {
   const minus  = e.target.closest("[data-minus]");
   const remove = e.target.closest("[data-remove]");
 
-  if (add)    addToCart(Number(add.dataset.add));
+  if (add)    addToCart(Number(add.dataset.add), add);
   if (plus)   changeQty(Number(plus.dataset.plus), +1);
   if (minus)  changeQty(Number(minus.dataset.minus), -1);
   if (remove) removeFromCart(Number(remove.dataset.remove));
@@ -1660,6 +1810,35 @@ function initCardTilt() {
       card.classList.remove("tilt");
       card.style.transform = "";
     });
+  });
+}
+
+/* ============================================================
+   СКРОЛЛ REVEAL — элементтер көрінген сайын жұмсақ шығады
+   ============================================================ */
+function initReveal() {
+  if (REDUCED_MOTION || !("IntersectionObserver" in window)) return;
+
+  const targets = document.querySelectorAll(
+    ".section__head, .card, .about__media, .about__content, .quote .container, .contact__card, .footer__inner"
+  );
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      // карточкалар кезекпен шығады (60ms аралықпен)
+      const delay = Number(e.target.dataset.revealDelay || 0);
+      setTimeout(() => e.target.classList.add("in"), delay);
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+
+  let group = null, i = 0;
+  targets.forEach((el) => {
+    el.classList.add("reveal");
+    const parent = el.parentElement;
+    if (parent === group) { i++; } else { group = parent; i = 0; }
+    el.dataset.revealDelay = String(Math.min(i, 5) * 60);
+    io.observe(el);
   });
 }
 
@@ -1758,6 +1937,7 @@ initLang();       // сақталған тілді орнатып, статик�
 renderProducts(); // дұрыс тілде (initCardTilt осы жерде шақырылады)
 initScene3D();
 renderCart();
+initReveal();     // скроллда жұмсақ шығу (карточкалар рендерленген соң)
 
 </script>
 </body>

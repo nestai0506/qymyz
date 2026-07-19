@@ -14,6 +14,7 @@ def datauri(path, mime="image/jpeg"):
 hero_uri  = datauri(os.path.join(ROOT, "images", "hero.jpg"))
 bg_uri    = datauri(os.path.join(ROOT, "images", "about-bg.jpg"))
 about_uri = datauri(os.path.join(ROOT, "images", "about.jpg"))
+aldar_uri = datauri(os.path.join(ROOT, "images", "aldar.webp"), "image/webp")
 
 # --- CSS ---
 with open(os.path.join(ROOT, "styles.css"), "r", encoding="utf-8") as f:
@@ -37,6 +38,9 @@ html, n_css = re.subn(
 )
 # about суретін data-URI-ге
 html, n_img = re.subn(r'src="images/about\.jpg"', lambda m: f'src="{about_uri}"', html)
+# hero-дағы бала суретін data-URI-ге
+html, n_kid = re.subn(r'src="images/aldar\.webp"', lambda m: f'src="{aldar_uri}"', html)
+assert n_kid == 1, f"aldar.webp inline failed: {n_kid}"
 # сыртқы JS-ті inline <script>-ке
 html, n_js = re.subn(
     r'<script src="script\.js(?:\?v=\d+)?"></script>',

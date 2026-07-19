@@ -234,17 +234,18 @@ ul{ list-style:none; }
   0%,100%{ transform:rotateY(-13deg) rotateX(6deg); }
   50%    { transform:rotateY(13deg)  rotateX(2deg); }
 }
-/* Бала баяу тыныс алады (тірі көрінуі үшін) */
-.kid{ transform-box:view-box; transform-origin:190px 420px; animation:kidBreath 4.6s ease-in-out infinite; }
-@keyframes kidBreath{
-  0%,100%{ transform:translateY(0) }
-  50%    { transform:translateY(-5px) }
+/* Бала (сурет) — жерге тіреліп тұрады, баяу тыныс алады */
+.kid-img{
+  position:absolute; left:50%; bottom:4%;
+  height:92%; width:auto; max-width:none;
+  transform:translateX(-50%);
+  animation:kidBreath 4.8s ease-in-out infinite;
+  filter:drop-shadow(0 18px 26px rgba(26,14,5,.45));
+  pointer-events:none; user-select:none;
 }
-/* Тақиядағы үкі желмен тербеледі */
-.kid__plume{ transform-box:view-box; transform-origin:190px 80px; animation:plumeSway 3.4s ease-in-out infinite; }
-@keyframes plumeSway{
-  0%,100%{ transform:rotate(-5deg) }
-  50%    { transform:rotate(5deg) }
+@keyframes kidBreath{
+  0%,100%{ transform:translateX(-50%) translateY(0) }
+  50%    { transform:translateX(-50%) translateY(-8px) }
 }
 .pour-shadow{ transform-box:fill-box; transform-origin:center; animation:shadowPulse 5s ease-in-out infinite; }
 @keyframes shadowPulse{ 0%,100%{ transform:scaleX(.86); opacity:.55 } 55%{ transform:scaleX(1); opacity:.8 } }

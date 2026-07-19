@@ -172,129 +172,140 @@
           <!-- ортақ градиенттер мен филтрлер -->
           <svg class="defs-svg" width="0" height="0" viewBox="0 0 380 470">
             <defs>
-              <linearGradient id="milkG" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e6dcc4"/>
+              <linearGradient id="chapanG" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#8a5a2e"/><stop offset="0.55" stop-color="#6b4526"/><stop offset="1" stop-color="#4a2f18"/>
               </linearGradient>
+              <linearGradient id="sleeveG" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#5c3a1f"/><stop offset="1" stop-color="#7a5028"/>
+              </linearGradient>
+              <radialGradient id="skinG" cx="0.4" cy="0.35" r="0.8">
+                <stop offset="0" stop-color="#f2c79c"/><stop offset="1" stop-color="#dda474"/>
+              </radialGradient>
+              <radialGradient id="keseG" cx="0.42" cy="0.28" r="0.9">
+                <stop offset="0" stop-color="#faf3e4"/><stop offset="1" stop-color="#d8c6a2"/>
+              </radialGradient>
               <radialGradient id="milkTop" cx="0.4" cy="0.35" r="0.85">
-                <stop offset="0" stop-color="#ffffff"/><stop offset="0.6" stop-color="#f4edda"/><stop offset="1" stop-color="#ddd1b6"/>
+                <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f0e8d6"/>
               </radialGradient>
-              <linearGradient id="woodG" x1="0.15" y1="0" x2="0.7" y2="1">
-                <stop offset="0" stop-color="#c99356"/><stop offset="0.45" stop-color="#96602f"/><stop offset="1" stop-color="#4a2d14"/>
-              </linearGradient>
-              <radialGradient id="woodInner" cx="0.45" cy="0.38" r="0.8">
-                <stop offset="0" stop-color="#7d5129"/><stop offset="1" stop-color="#3b2410"/>
-              </radialGradient>
-              <radialGradient id="bowlBody" cx="0.42" cy="0.24" r="0.95">
-                <stop offset="0" stop-color="#f3ead6"/><stop offset="0.6" stop-color="#dcc9a1"/><stop offset="1" stop-color="#b89e6f"/>
-              </radialGradient>
-              <radialGradient id="bowlInner" cx="0.5" cy="0.42" r="0.75">
-                <stop offset="0" stop-color="#c6b184"/><stop offset="1" stop-color="#8a7145"/>
-              </radialGradient>
-              <linearGradient id="streamG" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0" stop-color="#ffffff" stop-opacity="0.25"/>
-                <stop offset="0.5" stop-color="#ffffff"/>
-                <stop offset="1" stop-color="#ffffff" stop-opacity="0.25"/>
-              </linearGradient>
-              <clipPath id="bowlClip"><path d="M99 322 Q185 338 271 322 Q185 396 99 322 Z"/></clipPath>
-              <clipPath id="bodyClip"><ellipse cx="222" cy="122" rx="46" ry="30" transform="rotate(-32 222 122)"/></clipPath>
               <filter id="blurS"><feGaussianBlur stdDeviation="7"/></filter>
-              <filter id="liquidWarp" x="-20%" y="-60%" width="140%" height="220%">
-                <feTurbulence type="fractalNoise" baseFrequency="0.02 0.05" numOctaves="1" seed="2" result="n">
-                  <animate attributeName="seed" values="2;9;2" dur="6s" repeatCount="indefinite"/>
-                </feTurbulence>
-                <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G"/>
-              </filter>
-              <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="2" seed="7"/><feColorMatrix type="saturate" values="0"/></filter>
             </defs>
           </svg>
 
-          <!-- ҚАБАТ 1: көлеңке -->
+          <!-- ҚАБАТ 1: жер көлеңкесі -->
           <div class="layer layer--shadow">
             <svg viewBox="0 0 380 470">
-              <ellipse class="pour-shadow" cx="185" cy="442" rx="120" ry="16" fill="#1a0e05" opacity=".3" filter="url(#blurS)"/>
+              <ellipse class="pour-shadow" cx="190" cy="436" rx="96" ry="15" fill="#1a0e05" opacity=".32" filter="url(#blurS)"/>
             </svg>
           </div>
 
-          <!-- ҚАБАТ 2: КЕСЕ + қымыз -->
+          <!-- ҚАБАТ 2: БАЛА — қолында қымыз толы кесе -->
           <div class="layer layer--bowl">
             <svg viewBox="0 0 380 470">
-              <!-- сыртқы дене (керамика, көлемді) -->
-              <path d="M87 322 C90 362 132 405 185 405 C238 405 280 362 283 322 C283 310 240 300 185 300 C130 300 87 310 87 322 Z" fill="url(#bowlBody)" stroke="#7a4e26" stroke-width="2.5"/>
-              <!-- сол жақ жарық -->
-              <path d="M103 330 C107 360 128 388 156 399" fill="none" stroke="#fdf6e6" stroke-width="4" stroke-linecap="round" opacity=".45"/>
-              <!-- ішкі қуыс (көлеңке) -->
-              <ellipse cx="185" cy="322" rx="88" ry="19" fill="url(#bowlInner)"/>
-              <!-- қымыз (толып тұрады) -->
-              <g clip-path="url(#bowlClip)">
-                <g>
-                  <animateTransform attributeName="transform" type="translate" values="0 150;0 0;0 0;0 0;0 150" keyTimes="0;0.5;0.88;0.95;1" dur="5s" repeatCount="indefinite"/>
-                  <animate attributeName="opacity" values="1;1;1;0;0" keyTimes="0;0.5;0.88;0.95;1" dur="5s" repeatCount="indefinite"/>
-                  <rect x="95" y="322" width="180" height="150" fill="url(#milkG)"/>
-                  <ellipse cx="185" cy="322" rx="86" ry="15" fill="url(#milkTop)" filter="url(#liquidWarp)"/>
+              <g class="kid">
+
+                <!-- ===== Етік ===== -->
+                <path d="M164 372 h22 v40 q0 8 -8 8 h-22 q-8 0 -7 -8 l3 -14 q1 -7 7 -9 z" fill="#3f2712"/>
+                <path d="M194 372 h22 v26 q6 2 7 9 l3 14 q1 8 -7 8 h-22 q-8 0 -8 -8 z" fill="#3f2712"/>
+                <path d="M157 404 h30 M196 404 h30" stroke="#5c3a1f" stroke-width="3" stroke-linecap="round"/>
+
+                <!-- ===== Шапан ===== -->
+                <path d="M152 200 Q190 186 228 200 L247 384 Q190 397 133 384 Z" fill="url(#chapanG)"/>
+                <!-- ішкі көйлек (жаға) -->
+                <path d="M170 194 L190 236 L210 194 Q190 186 170 194 Z" fill="#f4ecd9"/>
+                <!-- алдыңғы жиегі мен алтын жиек -->
+                <path d="M170 194 L190 236 L210 194" fill="none" stroke="#cf9a3a" stroke-width="4" stroke-linejoin="round"/>
+                <path d="M190 236 L190 384" stroke="#cf9a3a" stroke-width="2.6" opacity=".85"/>
+                <path d="M135 380 Q190 393 245 380" fill="none" stroke="#cf9a3a" stroke-width="5"/>
+                <!-- шапандағы ою -->
+                <path d="M150 330 q10 7 20 0 q10 -7 20 0 q10 7 20 0 q10 -7 20 0" fill="none" stroke="#cf9a3a" stroke-width="2.4" opacity=".55"/>
+
+                <!-- ===== Белбеу ===== -->
+                <path d="M143 288 Q190 297 237 288 L239 310 Q190 320 141 310 Z" fill="#cf9a3a"/>
+                <path d="M152 297 l5 6 l5 -6 M170 300 l5 6 l5 -6 M205 300 l5 6 l5 -6 M223 297 l5 6 l5 -6"
+                      fill="none" stroke="#7a5028" stroke-width="2.2" stroke-linecap="round" opacity=".8"/>
+                <circle cx="190" cy="303" r="9.5" fill="#e3c072" stroke="#7a5028" stroke-width="2.2"/>
+                <circle cx="190" cy="303" r="3.2" fill="#7a5028"/>
+
+                <!-- ===== Жеңдер (кесені ұстап тұр) ===== -->
+                <path d="M158 208 Q136 240 152 260" fill="none" stroke="url(#sleeveG)" stroke-width="27" stroke-linecap="round"/>
+                <path d="M222 208 Q244 240 228 260" fill="none" stroke="url(#sleeveG)" stroke-width="27" stroke-linecap="round"/>
+                <!-- алтын өң (манжет) -->
+                <path d="M143 250 Q148 262 158 262" fill="none" stroke="#cf9a3a" stroke-width="7" stroke-linecap="round"/>
+                <path d="M237 250 Q232 262 222 262" fill="none" stroke="#cf9a3a" stroke-width="7" stroke-linecap="round"/>
+
+                <!-- ===== КЕСЕ (қымыз толы) — басты деталь, ірі ===== -->
+                <ellipse cx="190" cy="232" rx="46" ry="12" fill="url(#keseG)"/>
+                <path d="M144 232 Q190 292 236 232" fill="url(#keseG)" stroke="#a9772a" stroke-width="3" stroke-linejoin="round"/>
+                <ellipse cx="190" cy="232" rx="40" ry="9.5" fill="url(#milkTop)"/>
+                <ellipse cx="190" cy="232" rx="46" ry="12" fill="none" stroke="#a9772a" stroke-width="3.2"/>
+                <!-- кесенің ою белдеуі -->
+                <path d="M156 252 q11 7 22 0 q11 -7 22 0 q11 7 22 0" fill="none" stroke="#cf9a3a" stroke-width="2.6" opacity=".75"/>
+
+                <!-- ===== Қолдар (кесені екі жағынан ұстаған) ===== -->
+                <ellipse cx="152" cy="256" rx="13.5" ry="10.5" fill="url(#skinG)" transform="rotate(-20 152 256)"/>
+                <ellipse cx="228" cy="256" rx="13.5" ry="10.5" fill="url(#skinG)" transform="rotate(20 228 256)"/>
+
+                <!-- ===== Мойын мен бас ===== -->
+                <path d="M179 176 h22 v22 q-11 6 -22 0 z" fill="#dda474"/>
+                <ellipse cx="190" cy="150" rx="40" ry="43" fill="url(#skinG)"/>
+                <ellipse cx="150" cy="156" rx="7" ry="10" fill="#dda474"/>
+                <ellipse cx="230" cy="156" rx="7" ry="10" fill="#dda474"/>
+                <!-- шаш -->
+                <path d="M154 128 Q190 112 226 128 Q214 120 190 118 Q166 120 154 128 Z" fill="#2f1c0c"/>
+
+                <!-- бет -->
+                <path d="M167 139 q9 -6 17 -1" fill="none" stroke="#2f1c0c" stroke-width="2.8" stroke-linecap="round"/>
+                <path d="M196 138 q8 -5 17 1" fill="none" stroke="#2f1c0c" stroke-width="2.8" stroke-linecap="round"/>
+                <ellipse cx="176" cy="153" rx="4.6" ry="5.6" fill="#2f1c0c">
+                  <animate attributeName="ry" values="5.6;5.6;0.6;5.6" keyTimes="0;0.93;0.955;0.98" dur="5.5s" repeatCount="indefinite"/>
+                </ellipse>
+                <ellipse cx="204" cy="153" rx="4.6" ry="5.6" fill="#2f1c0c">
+                  <animate attributeName="ry" values="5.6;5.6;0.6;5.6" keyTimes="0;0.93;0.955;0.98" dur="5.5s" repeatCount="indefinite"/>
+                </ellipse>
+                <circle cx="177.6" cy="151" r="1.5" fill="#fff" opacity=".9"/>
+                <circle cx="205.6" cy="151" r="1.5" fill="#fff" opacity=".9"/>
+                <path d="M190 158 q3.5 5 -1 6.5" fill="none" stroke="#c08a5e" stroke-width="2.4" stroke-linecap="round"/>
+                <path d="M180 171 q10 8 20 0" fill="none" stroke="#8a4a34" stroke-width="2.8" stroke-linecap="round"/>
+                <ellipse cx="162" cy="164" rx="9" ry="6" fill="#e08a6a" opacity=".32"/>
+                <ellipse cx="218" cy="164" rx="9" ry="6" fill="#e08a6a" opacity=".32"/>
+
+                <!-- ===== Тақия (ою-өрнекті) =====
+                     Күмбезі басты жауып тұрады: табаны y=124, төбесі y=86 -->
+                <path d="M150 124 Q152 90 190 86 Q228 90 230 124 Z" fill="#4a2f18"/>
+                <!-- күмбездегі ою -->
+                <path d="M166 112 l5 8 l5 -8 M185 106 l5 8 l5 -8 M204 112 l5 8 l5 -8"
+                      fill="none" stroke="#cf9a3a" stroke-width="2.4" stroke-linecap="round" opacity=".9"/>
+                <!-- алтын жиек (табанында) -->
+                <path d="M148 118 Q190 130 232 118 L232 131 Q190 143 148 131 Z" fill="#cf9a3a"/>
+                <path d="M158 124 l4 5 l4 -5 M176 127 l4 5 l4 -5 M196 127 l4 5 l4 -5 M214 124 l4 5 l4 -5"
+                      fill="none" stroke="#5c3a1f" stroke-width="2" stroke-linecap="round"/>
+                <!-- үкі — тақияның төбесіне бекітілген -->
+                <circle cx="190" cy="88" r="5.5" fill="#e3c072" stroke="#7a5028" stroke-width="1.8"/>
+                <g class="kid__plume">
+                  <path d="M190 86 q-7 -18 -4 -28" fill="none" stroke="#f4ecd9" stroke-width="3.4" stroke-linecap="round" opacity=".95"/>
+                  <path d="M190 86 q1 -20 5 -28" fill="none" stroke="#f4ecd9" stroke-width="3" stroke-linecap="round" opacity=".82"/>
+                  <path d="M190 86 q8 -16 14 -22" fill="none" stroke="#f4ecd9" stroke-width="2.6" stroke-linecap="round" opacity=".7"/>
                 </g>
               </g>
-              <!-- ішкі жиек жарығы -->
-              <ellipse cx="185" cy="320" rx="88" ry="19" fill="none" stroke="#f6ecd6" stroke-opacity=".55" stroke-width="1.6"/>
-              <!-- сыртқы жиек -->
-              <ellipse cx="185" cy="322" rx="98" ry="22" fill="none" stroke="#7a4e26" stroke-width="3"/>
-              <!-- ою-өрнек белдеуі (қошқар мүйіз толқыны) -->
-              <path d="M108 342 q13 8 26 0 q13 -8 26 0 q13 8 26 0 q13 -8 26 0 q13 8 26 0" fill="none" stroke="#cf9a3a" stroke-width="2.8" opacity=".9"/>
-              <!-- аяқ-табан -->
-              <path d="M165 404 L170 424 Q185 432 200 424 L205 404" fill="none" stroke="#7a4e26" stroke-width="4" stroke-linecap="round"/>
-              <ellipse cx="185" cy="426" rx="22" ry="6" fill="url(#bowlBody)" stroke="#7a4e26" stroke-width="3.5"/>
             </svg>
           </div>
 
-          <!-- ҚАБАТ 3: АҒЫН + шашырау -->
-          <div class="layer layer--stream">
-            <svg viewBox="0 0 380 470">
-              <path class="pour-stream" fill="none" stroke="url(#streamG)" stroke-width="11" stroke-linecap="round" stroke-dasharray="18 10" d="M184 150 C 182 210 186 262 185 318">
-                <animate attributeName="d" values="M184 150 C 182 210 186 262 185 318; M184 150 C 188 210 182 262 185 318; M184 150 C 182 210 186 262 185 318" dur="1.4s" repeatCount="indefinite"/>
-                <animate attributeName="stroke-dashoffset" values="28;0" dur="0.4s" repeatCount="indefinite"/>
-                <animate attributeName="opacity" values="1;1;1;0;0" keyTimes="0;0.5;0.88;0.93;1" dur="5s" repeatCount="indefinite"/>
-              </path>
-              <path fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" opacity=".85" d="M184 154 C 183 212 186 262 185 314">
-                <animate attributeName="opacity" values=".85;.85;.85;0;0" keyTimes="0;0.5;0.88;0.93;1" dur="5s" repeatCount="indefinite"/>
-              </path>
-              <!-- шашыраған тамшылар -->
-              <g fill="#ffffff">
-                <circle cx="170" cy="312" r="3"><animate attributeName="cy" values="316;300;316" dur="0.7s" repeatCount="indefinite"/><animate attributeName="cx" values="185;168;160" dur="0.7s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="0.7s" repeatCount="indefinite"/></circle>
-                <circle cx="200" cy="312" r="2.6"><animate attributeName="cy" values="316;298;316" dur="0.8s" begin="0.2s" repeatCount="indefinite"/><animate attributeName="cx" values="185;204;212" dur="0.8s" begin="0.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="0.8s" begin="0.2s" repeatCount="indefinite"/></circle>
-                <circle cx="184" cy="230" r="3.4"><animate attributeName="cy" values="164;314" dur="0.9s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="0.9s" repeatCount="indefinite"/></circle>
-              </g>
-            </svg>
-          </div>
-
-          <!-- ҚАБАТ 4: ОЖАУ (ағаш ожау) -->
+          <!-- ҚАБАТ 3: кеседен көтерілген жеңіл бу -->
           <div class="layer layer--jug">
             <svg viewBox="0 0 380 470">
-              <g class="pour-jug">
-                <!-- сап (тұтқа) -->
-                <path d="M256 102 L336 52" fill="none" stroke="#3f2712" stroke-width="15" stroke-linecap="round"/>
-                <path d="M256 102 L336 52" fill="none" stroke="#8a5a2e" stroke-width="11" stroke-linecap="round"/>
-                <path d="M259 99 L332 53" fill="none" stroke="#c99356" stroke-width="3" stroke-linecap="round" opacity=".55"/>
-                <!-- саптағы ою-кертпелер -->
-                <path d="M296 79 l7 11 M306 73 l7 11" stroke="#3f2712" stroke-width="2" stroke-linecap="round" opacity=".65"/>
-                <!-- сап ұшындағы ойма түйін -->
-                <circle cx="341" cy="48" r="9" fill="#8a5a2e" stroke="#3f2712" stroke-width="2.5"/>
-                <circle cx="341" cy="48" r="3.5" fill="none" stroke="#c99356" stroke-width="1.6" opacity=".8"/>
-
-                <!-- ожаудың сыртқы шарасы -->
-                <ellipse cx="222" cy="122" rx="46" ry="30" transform="rotate(-32 222 122)" fill="url(#woodG)" stroke="#3f2712" stroke-width="3"/>
-                <!-- ағаш текстурасы мен жарық (шараға қиылған) -->
-                <g clip-path="url(#bodyClip)">
-                  <rect x="170" y="86" width="106" height="74" filter="url(#grain)" opacity=".22" style="mix-blend-mode:multiply"/>
-                  <path d="M188 132 Q222 118 258 106" fill="none" stroke="#5e3a1a" stroke-width="1.6" opacity=".5"/>
-                  <path d="M192 142 Q226 128 262 116" fill="none" stroke="#5e3a1a" stroke-width="1.4" opacity=".4"/>
-                </g>
-                <!-- ішкі қуыс (шұңқыр) -->
-                <ellipse cx="223" cy="120" rx="38" ry="22" transform="rotate(-32 223 120)" fill="url(#woodInner)"/>
-                <!-- шұңқырдағы қымыз -->
-                <ellipse cx="217" cy="126" rx="32" ry="16" transform="rotate(-32 217 126)" fill="url(#milkTop)"/>
-                <!-- жиек жарығы -->
-                <path d="M191 138 A46 30 -32 0 1 254 96" fill="none" stroke="#e8c48a" stroke-width="2.2" opacity=".75"/>
-                <!-- ернеу (құйылатын жері) -->
-                <path d="M188 138 Q179 146 184 153 Q191 151 196 143 Z" fill="#fcfbf6"/>
+              <g fill="none" stroke="#f4ecd9" stroke-width="2.6" stroke-linecap="round" opacity="0">
+                <path d="M176 226 q-5 -12 1 -22 q5 -9 1 -18">
+                  <animate attributeName="opacity" values="0;.45;0" dur="3.4s" repeatCount="indefinite"/>
+                  <animateTransform attributeName="transform" type="translate" values="0 6; 0 -22" dur="3.4s" repeatCount="indefinite"/>
+                </path>
+                <path d="M190 222 q5 -13 -1 -23 q-5 -9 0 -17">
+                  <animate attributeName="opacity" values="0;.4;0" dur="3.8s" begin="1.1s" repeatCount="indefinite"/>
+                  <animateTransform attributeName="transform" type="translate" values="0 6; 0 -26" dur="3.8s" begin="1.1s" repeatCount="indefinite"/>
+                </path>
+                <path d="M205 226 q-5 -11 1 -20">
+                  <animate attributeName="opacity" values="0;.35;0" dur="3.2s" begin="2.2s" repeatCount="indefinite"/>
+                  <animateTransform attributeName="transform" type="translate" values="0 6; 0 -20" dur="3.2s" begin="2.2s" repeatCount="indefinite"/>
+                </path>
               </g>
             </svg>
           </div>
